@@ -56,13 +56,13 @@ The main areas you’ll notice are:
 
 Before anything, you need to get comfortable moving around.
 
-- **Orbit**: rotate the view around your objects. (Middle mouse button drag)
+- **Orbit**: rotate the view around your objects. (Left click and button drag)
 
 <center>
 <img src="/images/Getting-Started/orbit.gif" alt="Orbit GIF" width="500">
 </center>
 
-- **Pan**: slide the view left, right, up, or down. (Shift + middle mouse button)
+- **Pan**: slide the view left, right, up, or down. (Shift + Left click)
 
 <center>
 <img src="/images/Getting-Started/pan.gif" alt="Pan GIF" width="500">
@@ -72,9 +72,9 @@ Before anything, you need to get comfortable moving around.
 
 <center>
 <img src="/images/Getting-Started/zoom.gif" alt="Zoom GIF" width="500">
-</center>
+</center><br>
 
-Use the **Navigation Gizmo** in the top-right corner of the 3D Viewport to see your scene from different perspectives; front, side, top, bottom, etc.
+Use the **Navigation Gizmo** in the top-right corner of the 3D Viewport to see your scene from **different perspectives**; front, side, top, bottom, etc.
 
 <center>
 <img src="/images/Getting-Started/navigation-gizmo.jpg" alt="Navigation Gizmo" width="100">
@@ -92,7 +92,7 @@ This way:
 
 <center><small>Selecting objects.</small><br>
 <img src="/images/Getting-Started/selecting-objects.gif" alt="Selecting Objects GIF" width="500">
-</center>
+</center><br>
 
 <code>Left click</code> an object to select it (it highlights in orange).
 
@@ -102,7 +102,7 @@ This way:
 
 <center><small>Moving objects.</small><br>
 <img src="/images/Getting-Started/moving-objects.gif" alt="Moving Objects GIF" width="500">
-</center>
+</center><br>
 
 Press <code>G</code> (for “grab”), then move your mouse.
 
@@ -112,11 +112,11 @@ Press <code>X</code>, <code>Y</code>, or <code>Z</code> to lock movement to that
 
 ## Creating Default Files 
 
-When you open Blender, you can set up your scene once and save it as your default startup file.
+When you open Blender, you can **set up your scene once and save it as your default** startup file.
 
 This is important to us because using the right units keeps your models consistent and accurate, especially if you’re preparing them for 3D printing or fabrication.
 
-To set up our file dor 3D printing go to **Properties → Scene → Units** and choose **Metric**, change to **centimeters** length and set up your **Unit Scale to 0.1**.
+To set up our file for 3D printing go to **Properties → Scene → Units** and choose **Metric**, change to **centimeters** length and set up your **Unit Scale to 0.1**.
 
 <center>
 <img src="/images/Getting-Started/units.jpg" alt="Units" width="200">
@@ -131,7 +131,7 @@ Go to **Viewport Overlays → Guides → Scale** and set it to **0.01**.
 
 <center>
 <img src="/images/Getting-Started/grid.jpg" alt="Grid" width="300">
-</center>
+</center><br>
 
 This is the basic setup. To make Blender remember it, go to
 <code>File → Defaults → Save Startup File</code>.
@@ -143,11 +143,11 @@ Now, every time you open Blender, your scene will start with these settings alre
 
 It might be useful to leave some **other settings prepared for a practical workflow**, like installing addons or adjusting rendering settings, which we’ll look at in more detail as we go forward.
 
-The point near the cube is a **light**, and the square is a **camera**. We don’t need these for now, so we can delete them... we can get rid of the cube too. (¬‿¬)
+The point near the cube is a **light**, and the square is a **camera**. We don’t need these for now, so we can delete them... we can even get rid of the cube too. (¬‿¬)
 
 <center>
 <img src="/images/Getting-Started/delete.jpg" alt="Delete" width="300">
-</center>
+</center><br>
 
 Select everything with <code>A</code>, then press <code>X</code> and click on **delete** the selected objects — this includes the cube, the camera, and the light.
 
