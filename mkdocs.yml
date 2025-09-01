@@ -1,1 +1,6 @@
-site_name: My Docs
+site_name: Camila's Site Welcome
+theme:
+  name: terminal
+
+extra_css:
+  - css/custom.css

@@ -1,0 +1,6 @@
+{
+  "path-autocomplete.pathMappings": {
+    "/images": "${workspaceFolder}/docs/images"
+  }
+}
+
