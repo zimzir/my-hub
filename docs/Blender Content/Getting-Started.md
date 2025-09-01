@@ -3,11 +3,11 @@
 
 <center> 
 ★ ★ ★ Blender Studio & I ★ ★ ★
-</center>
+</center><br>
 
-My journey with [Blender](https://studio.blender.org/welcome/) spans over five years of self-learning. It’s all about losing the fear of not knowing how something works, of messing things up, and of not knowing how to reproduce something you just did. 
+My journey with [Blender](https://www.blender.org/) spans over five years of self-learning. It’s all about losing the fear of not knowing how something works, of messing things up, and of not knowing how to reproduce something you just did. 
 
-<center><small>Doing is learning, and mistakes are part of the process. Feeling stupid is how you know you are learning.</center></small>
+<center><small>Doing is learning, and mistakes are part of the process. Feeling a little lost or "stupid" sometimes is a good sign that shows you are learning.</center></small>
 
 I’ve discovered that the **best way to learn is to dive in with an idea in mind**. There are a million ways to do the same thing. 
 
@@ -56,17 +56,43 @@ The main areas you’ll notice are:
 
 Before anything, you need to get comfortable moving around.
 
-Orbit: rotate the view around your objects. (Middle mouse button drag)
+- **Orbit**: rotate the view around your objects. (Middle mouse button drag)
 
-Pan: slide the view left, right, up, or down. (Shift + middle mouse button)
+<center>
+<img src="/images/Getting-Started/orbit.gif" alt="Orbit GIF" width="500">
+</center>
 
-Zoom: move closer or further away. (Scroll wheel or Ctrl + middle mouse drag)
+- **Pan**: slide the view left, right, up, or down. (Shift + middle mouse button)
+
+<center>
+<img src="/images/Getting-Started/pan.gif" alt="Pan GIF" width="500">
+</center>
+
+- **Zoom**: move closer or further away. (Scroll wheel or Ctrl + middle mouse drag)
+
+<center>
+<img src="/images/Getting-Started/zoom.gif" alt="Zoom GIF" width="500">
+</center>
+
+Use the **Navigation Gizmo** in the top-right corner of the 3D Viewport to see your scene from different perspectives; front, side, top, bottom, etc.
+
+<center>
+<img src="/images/Getting-Started/navigation-gizmo.jpg" alt="Navigation Gizmo" width="100">
+</center>
+
+This way:
+
+<center>
+<img src="/images/Getting-Started/navigation-gizmo.gif" alt="Navigation Gizmo" width="500">
+</center>
 
 ---
 
 ## Moving Things Around
 
-Selecting objects
+<center><small>Selecting objects.</small><br>
+<img src="/images/Getting-Started/selecting-objects.gif" alt="Selecting Objects GIF" width="500">
+</center>
 
 <code>Left click</code> an object to select it (it highlights in orange).
 
@@ -74,27 +100,13 @@ Selecting objects
 
 <code>A</code> selects all objects in the scene.
 
-## Moving objects
+<center><small>Moving objects.</small><br>
+<img src="/images/Getting-Started/moving-objects.gif" alt="Moving Objects GIF" width="500">
+</center>
 
 Press <code>G</code> (for “grab”), then move your mouse.
 
 Press <code>X</code>, <code>Y</code>, or <code>Z</code> to lock movement to that axis.
-
----
-
-## Gizmo
-
-The gizmo (red, green, blue arrows) lets you move objects along a single **axis** by dragging the arrow.
-
-To change your view, use the navigation widget (top right of the viewport) or press:
-
-<code>1</code> = front
-
-<code>3</code> = right
-
-<code>7</code> = top
-
-Add <code>Ctrl</code> for the opposite view.
 
 ---
 
@@ -110,6 +122,9 @@ To set up our file dor 3D printing go to **Properties → Scene → Units** and 
 <img src="/images/Getting-Started/units.jpg" alt="Units" width="200">
 </center>
 
+<span style="font-size: 50px; color: red;">!</span> <small>Note: Because of this change, we’ll need to adjust some offsets when exporting. We’ll cover the details in the Exporting for 3D Printing section. </small>
+
+
 To make the grid more useful for precise modeling, you can change its scale.
 
 Go to **Viewport Overlays → Guides → Scale** and set it to **0.01**. 
@@ -123,3 +138,17 @@ This is the basic setup. To make Blender remember it, go to
 
 Now, every time you open Blender, your scene will start with these settings already in place.
 
+
+## Going A Little Further (Optional)
+
+It might be useful to leave some **other settings prepared for a practical workflow**, like installing addons or adjusting rendering settings, which we’ll look at in more detail as we go forward.
+
+The point near the cube is a **light**, and the square is a **camera**. We don’t need these for now, so we can delete them... we can get rid of the cube too. (¬‿¬)
+
+<center>
+<img src="/images/Getting-Started/delete.jpg" alt="Delete" width="300">
+</center>
+
+Select everything with <code>A</code>, then press <code>X</code> and click on **delete** the selected objects — this includes the cube, the camera, and the light.
+
+Finally! 
