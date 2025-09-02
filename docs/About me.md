@@ -2,7 +2,7 @@
 
 <center>
 
-![This is me](images/about-me/this-is-me.png)
+![This is me](/../images/about-me/this-is-me.png)
 
 </center>
 
