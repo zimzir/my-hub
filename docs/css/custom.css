@@ -1,28 +1,15 @@
 /* Default inline code */
 code {
-    background-color: #d3edc2;
-    /* light green background */
-    color: #6f2515;
-    /* darker text */
-    padding: 2px 5px;
-    border-radius: 4px;
+  background-color: #d3edc2;  /* light green background */
+  color: #6f2515;             /* darker text */
+  padding: 2px 5px;
+  border-radius: 4px;
 }
 
 /* Mac shortcuts */
 code.mac {
-    background-color: #c9dce3;
-    /* light pink background */
-    color: #6c5c80;
-    /* dark pink text */
+  background-color: #c9dce3;  /* light pink background */
+  color: #6c5c80;             /* dark pink text */
 }
 
 
-/* Indentar h3 dentro del índice */
-.md-nav .md-nav__item .md-nav .md-nav__link {
-    margin-left: 1em;
-}
-
-/* Si quieres más indentación aún */
-.md-nav .md-nav__item .md-nav .md-nav .md-nav__link {
-    margin-left: 2em;
-}

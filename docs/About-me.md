@@ -2,7 +2,13 @@
 
 <center>
 
-![This is me](/../images/about-me/this-is-me.png)
+
+![This is me](images/about-me/this-is-me.png)
+
+<center>
+  <img src="images/about-me/this-is-me.png" alt="This is me" width="300">
+</center>
+
 
 </center>
 
