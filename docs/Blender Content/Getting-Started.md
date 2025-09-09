@@ -19,7 +19,7 @@ Here, I want to share **how I learned to do the things I do**, my personal trick
 
 ## First Impressions
 
-So you've just managed to download Blender, open it and this is what you see. 
+So you've just managed to download Blender, open it (by creating a New File → General) and this is what you see. 
 
 ![Git Structure](../images/Getting-Started/Just-opened-blender.jpg)
 
@@ -56,19 +56,19 @@ The main areas you’ll notice are:
 
 Before anything, you need to get comfortable moving around.
 
-- **Orbit**: rotate the view around your objects. (Left click and button drag)
+- **Orbit**: rotate the view around your objects. (<code>Left click and button drag</code>)
 
 <center>
 <img src="/images/Getting-Started/orbit.gif" alt="Orbit GIF" width="500">
 </center>
 
-- **Pan**: slide the view left, right, up, or down. (Shift + Left click)
+- **Pan**: slide the view left, right, up, or down. (<code>Shift + Left click</code>)
 
 <center>
 <img src="/images/Getting-Started/pan.gif" alt="Pan GIF" width="500">
 </center>
 
-- **Zoom**: move closer or further away. (Scroll wheel or Ctrl + middle mouse drag)
+- **Zoom**: move closer or further away. (<code>Scroll wheel or Ctrl + middle mouse drag</code>)
 
 <center>
 <img src="/images/Getting-Started/zoom.gif" alt="Zoom GIF" width="500">
@@ -100,6 +100,8 @@ This way:
 
 <code>A</code> selects all objects in the scene.
 
+You can also select them by **clicking on their listed names at the outliner**. 
+
 <center><small>Moving objects.</small><br>
 <img src="/images/Getting-Started/moving-objects.gif" alt="Moving Objects GIF" width="500">
 </center><br>
@@ -107,6 +109,8 @@ This way:
 Press <code>G</code> (for “grab”), then move your mouse.
 
 Press <code>X</code>, <code>Y</code>, or <code>Z</code> to lock movement to that axis.
+
+Once you have it where you want it, **finish the action** by hitting <code>Enter</code> or <code>Left Click</code> anywhere in the viewport. Many other tools like rotate, scale, etc. end with this action too. 
 
 ---
 
@@ -134,10 +138,15 @@ Go to **Viewport Overlays → Guides → Scale** and set it to **0.01**.
 </center><br>
 
 This is the basic setup. To make Blender remember it, go to
-<code>File → Defaults → Save Startup File</code>.
+**File → Defaults → Save Startup File → Overwrite**.
+
+<center>
+<img src="/images/Getting-Started/save-startup-file.jpg" alt="Save Startup File" width="400">
+</center><br>
 
 Now, every time you open Blender, your scene will start with these settings already in place.
 
+---
 
 ## Going A Little Further (Optional)
 
