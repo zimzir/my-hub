@@ -17,3 +17,21 @@ I have experience with experimental lutherie; I’ve constructed both digital an
 
 Follow through as I share my journey <span style="color: purple;">c;</span>
 
+
+<div style="display: flex; gap: 20px;">
+
+<div style="flex: 1;">
+
+### 🖼️ Image
+![Example](images/example.jpg)
+
+</div>
+
+<div style="flex: 1;">
+
+### ✍️ Text
+Some text that appears next to the image.
+
+</div>
+
+</div>

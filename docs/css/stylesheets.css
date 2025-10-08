@@ -1,0 +1,113 @@
+/* === HEADER CUSTOMIZATION === */
+
+/* Overall header bar */
+.md-header {
+  height: 40px;
+  /* Change header height */
+  background-color: #ffffff;
+  /* Header background color */
+  padding: 0 !important;
+  /* Remove default padding */
+}
+
+/* Fix spacing inside header grid (controls side margins) */
+.md-header .md-grid {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  max-width: 100% !important;
+  padding-left: 5px !important;
+  /* 👈 Adjust this for left spacing */
+  padding-right: 5px !important;
+  /* 👈 Adjust this for right spacing */
+}
+
+/* Inner layout (title + search bar) */
+.md-header__inner {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 10px !important;
+}
+
+/* Title styling */
+.md-header__title {
+  font-weight: 700;
+  font-size: small;
+  margin-left: 0 !important;
+  color: #191919 !important;
+}
+
+/* === SEARCH BOX CUSTOMIZATION (aligned icon on the left) === */
+.md-search__form {
+  display: flex !important;
+  align-items: center !important;
+  background-color: #f1f1f1 !important;
+  border: 2px solid #9cbc9f !important;
+  border-radius: 4px !important;
+  padding: 2px 8px !important;
+  height: 28px !important;
+  width: 180px !important;
+  transition: all 0.2s ease-in-out;
+  position: relative !important;
+  overflow: hidden;
+}
+
+/* Move the search icon to the LEFT and center it vertically */
+.md-search__icon {
+  order: -1 !important;
+  /* moves icon to the left */
+  margin-right: 6px !important;
+  margin-left: 2px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #666 !important;
+  transform: translateY(-3px) !important;
+  /* adjust to center vertically if still off (try -1px or +1px) */
+}
+
+/* Search input text (aligned with icon) */
+.md-search__input {
+  flex: 1 !important;
+  background: transparent !important;
+  color: #333 !important;
+  font-size: small !important;
+  border: none !important;
+  outline: none !important;
+  min-width: 0 !important;
+  line-height: 1.4 !important;
+}
+
+/* Placeholder color */
+.md-search__input::placeholder {
+  color: #777 !important;
+
+}
+
+/* Hover effect for search box */
+.md-search__form:hover {
+  background-color: #cfb4b4 !important;
+  border-color: #5b605b !important;
+}
+
+/* Optional — remove any bottom border or line */
+.md-header {
+  box-shadow: none !important;
+  border-bottom: none !important;
+}
+
+
+/* === OPTIONAL TRANSPARENT HEADER === */
+/*
+.md-header {
+  background-color: transparent !important;
+  backdrop-filter: blur(6px);
+}
+*/
+
+/* === QUICK REFERENCE ===
+🟢 Header color → change background-color in .md-header
+🟢 Side margins → edit padding-left/right in .md-header .md-grid
+🟢 Search width → edit width: 180px in .md-search__form
+🟢 Adjust icon vertical position → tweak transform: translateY(-1px)
+*/

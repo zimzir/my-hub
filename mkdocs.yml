@@ -1,6 +1,29 @@
 site_name: Camila's Site Welcome
+
 theme:
-  name: terminal
+  name: material
+
+  palette:
+    scheme: default # 👈 light background / dark text
+    primary: pink
+    accent: white
+
+  font:
+    text: Hanken Grotesk
+    code: Red Hat Mono
+
+  logo: images/logo.png
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
 
 extra_css:
-  - css/custom.css
+  - css/stylesheets.css
