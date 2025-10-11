@@ -2,17 +2,17 @@ site_name: Camila's Site Welcome
 
 theme:
   name: material
-
   palette:
-    scheme: default # 👈 light background / dark text
+    scheme: default # light background / dark text
     primary: pink
     accent: white
 
   font:
-    text: Hanken Grotesk
+    text: Open Sans
     code: Red Hat Mono
 
   logo: images/logo.png
+  favicon: images/logo.ico
 
 markdown_extensions:
   - admonition
@@ -27,3 +27,4 @@ markdown_extensions:
 
 extra_css:
   - css/stylesheets.css
+copyright: "© 2025 Camila — Designed with for everyone"
