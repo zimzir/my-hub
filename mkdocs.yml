@@ -1,18 +1,36 @@
-site_name: Camila's Site Welcome
+site_name: Camila Simsiroglu
+
+nav:
+  - Home: index.md
+  - Archive: archive.md
+  - About: About-me.md
+  - Documentation:
+    - Blender Content:
+      - Getting Started: Blender Content/Getting-Started.md
+      - Modes in Blender: Blender Content/Modes-in-Blender copy.md
+      - Modifiers: Blender Content/Modifiers.md
+    - 3D Example: threejs-example.md
+
 
 theme:
   name: material
+  custom_dir: overrides
+  
   palette:
-    scheme: default # light background / dark text
-    primary: pink
-    accent: white
+    scheme: default
+    primary: white
+    accent: teal
 
   font:
-    text: Open Sans
-    code: Red Hat Mono
+    text: JetBrains Mono
+    code: JetBrains Mono
 
   logo: images/logo.png
   favicon: images/logo.ico
+  
+  features:
+    - navigation.sections
+    - navigation.expand
 
 markdown_extensions:
   - admonition
@@ -22,9 +40,18 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.highlight
   - pymdownx.inlinehilite
-  - pymdownx.tabbed:
-      alternate_style: true
 
 extra_css:
-  - css/stylesheets.css
-copyright: "© 2025 Camila — Designed with for everyone"
+  - css/custom.css
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js
+  - js/3d-viewer.js
+
+plugins:
+  - search
+
+extra:
+  generator: false
+
+copyright: ""
