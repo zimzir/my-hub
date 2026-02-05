@@ -2,11 +2,17 @@
   <div class="md-header__inner">
     <a href="{{ config.site_url | default('/', true) }}" class="site-title">
       <span class="header-dot"></span>
-      Camila Simsiroglu
+      CAMILA SIMSIROGLU
     </a>
     <nav class="header-nav">
-      <a href="{{ config.site_url }}Blender%20Content/Getting-Started/" class="header-link">Documentation</a>
-      <a href="{{ config.site_url }}archive/" class="header-link">Archive/Portfolio</a>
+      <a href="{{ config.site_url }}Blender%20Content/Getting-Started/"
+        class="header-link {% if 'Blender' in page.url or 'documentation' in page.url|lower %}header-link--active{% endif %}">
+        DOCUMENTATION
+      </a>
+      <a href="{{ config.site_url }}archive/"
+        class="header-link {% if 'archive' in page.url|lower %}header-link--active{% endif %}">
+        ARCHIVE - PORFOLIO
+      </a>
     </nav>
   </div>
 </header>

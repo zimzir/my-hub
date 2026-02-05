@@ -7,5 +7,5 @@ hide:
 ---
 
 <div class="hero-image">
-  <img src="images/index/fondo.jpg" alt="">
+  <img src="images/index/fondo-2.png" alt="">
 </div>

@@ -1,0 +1,450 @@
+/* ========================================
+   CAMILA SIMSIROGLU - CUSTOM STYLES
+   Manrope / Full screen hero / Scrollable
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+
+:root {
+  --font-header: 'Nothing You Could Do', cursive;
+  --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-code: 'JetBrains Mono', monospace;
+  --font-size-base: 14px;
+
+  --color-text: #1a1a1a;
+  --color-text-muted: #666;
+  --color-bg: #ffffff;
+  --color-border: #e5e5e5;
+
+  --color-accent: #059669;
+  --color-accent-hover: #047857;
+
+  --header-height: 40px;
+  --sidebar-width: 200px;
+  --content-max-width: 1200px;
+}
+
+/* ----------------------------------------
+   BASE
+   ---------------------------------------- */
+html {
+  font-size: var(--font-size-base);
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.6;
+}
+
+/* ----------------------------------------
+   HEADER
+   ---------------------------------------- */
+.md-header {
+  background: transparent;
+  box-shadow: none;
+  box-shadow: none;
+  border-bottom: 1px solid var(--color-border);
+  height: var(--header-height);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.md-header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.site-title {
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-header);
+  /* Cambio aquí */
+  font-size: 18px;
+  /* Serif se ve mejor un poco más grande */
+  font-weight: 500;
+  color: var(--color-text);
+  /* Esto controla el color */
+  text-decoration: none;
+}
+
+.site-title:hover {
+  color: var(--color-text-muted);
+}
+
+.header-dot {
+  width: 8px;
+  height: 8px;
+  background: #06b6d4;
+  border-radius: 50%;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.header-link {
+  font-family: var(--font-header);
+  /* antes: var(--font-body) */
+  font-size: 16px;
+  /* un poco más grande para serif */
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.header-link:hover {
+  color: var(--color-text);
+}
+
+.header-link--active {
+  color: var(--color-text);
+}
+
+/* Hide default header elements */
+.md-header__button,
+.md-header__title,
+.md-header__topic,
+.md-header__option,
+.md-header__source,
+.md-header .md-search {
+  display: none !important;
+}
+
+/* ----------------------------------------
+   HIDE HOME TITLE
+   ---------------------------------------- */
+.md-typeset h1:first-child {
+  display: none !important;
+}
+
+/* ----------------------------------------
+   HERO IMAGE - FULL SCREEN, SCROLLABLE
+   ---------------------------------------- */
+.hero-image {
+  width: 100vw;
+  height: calc(100vh - var(--header-height));
+  margin-left: calc(-50vw + 50%);
+  position: relative;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ----------------------------------------
+   MAIN LAYOUT
+   ---------------------------------------- */
+.md-container {
+  max-width: 100%;
+}
+
+.md-main {
+  max-width: 100%;
+}
+
+.md-main__inner {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 24px 32px;
+}
+
+/* Sidebar */
+.md-sidebar {
+  background: transparent;
+}
+
+.md-sidebar--primary {
+  width: var(--sidebar-width);
+}
+
+.md-nav {
+  font-family: var(--font-body);
+  font-size: 13px;
+}
+
+.md-nav__link {
+  color: var(--color-text-muted);
+  padding: 0.4rem 0;
+}
+
+.md-nav__link:hover {
+  color: var(--color-text);
+}
+
+.md-nav__link--active {
+  color: var(--color-accent) !important;
+  font-weight: 500;
+}
+
+.md-nav__item--nested>.md-nav__link {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+/* Content */
+.md-content {
+  max-width: 100%;
+}
+
+.md-content__inner {
+  padding: 24px 24px 48px 24px;
+  max-width: 100%;
+}
+
+/* ----------------------------------------
+   TYPOGRAPHY
+   ---------------------------------------- */
+.md-typeset {
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+}
+
+.md-typeset h1 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+.md-typeset h2 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.md-typeset h3 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.md-typeset p {
+  margin-bottom: 1rem;
+}
+
+.md-typeset a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.md-typeset a:hover {
+  color: var(--color-accent-hover);
+}
+
+.md-typeset code {
+  font-family: var(--font-code);
+  font-size: 0.9em;
+  background: #f5f5f5;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+}
+
+.md-typeset pre {
+  background: #1a1a1a;
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.md-typeset pre code {
+  background: none;
+  color: #f5f5f5;
+  padding: 0;
+}
+
+/* ----------------------------------------
+   ABOUT PAGE
+   ---------------------------------------- */
+.about-container {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  text-align: center;
+}
+
+.about-container h1 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.about-container p {
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.about-links a {
+  color: var(--color-accent);
+  text-decoration: none;
+  margin: 0 12px;
+  font-size: 14px;
+}
+
+.about-links a:hover {
+  color: var(--color-accent-hover);
+}
+
+/* ----------------------------------------
+   ARCHIVE PAGE
+   ---------------------------------------- */
+.archive-header {
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 16px;
+  margin-bottom: 32px;
+}
+
+.archive-header h1 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.archive-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.archive-item {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.archive-item img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  transition: opacity 0.2s;
+}
+
+.archive-item:hover img {
+  opacity: 0.8;
+}
+
+.archive-item-title {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 500;
+  margin: 0;
+  color: var(--color-text);
+  transition: color 0.2s;
+}
+
+.archive-item:hover .archive-item-title {
+  color: var(--color-accent);
+}
+
+.archive-item-meta {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-top: 4px;
+}
+
+@media (max-width: 900px) {
+  .archive-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .archive-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ----------------------------------------
+   3D VIEWER
+   ---------------------------------------- */
+.viewer-3d {
+  width: 100%;
+  max-width: 500px;
+  height: 400px;
+  margin: 24px auto;
+  border-radius: 8px;
+  background: #faf8f5;
+}
+
+/* ----------------------------------------
+   FOOTER
+   ---------------------------------------- */
+.md-footer {
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+}
+
+.md-footer-meta {
+  background: transparent;
+  padding: 20px;
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
+.md-copyright {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.md-footer-nav {
+  display: none;
+}
+
+/* ----------------------------------------
+   RESPONSIVE
+   ---------------------------------------- */
+@media (max-width: 960px) {
+
+  .md-header__inner,
+  .md-main__inner {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .md-header__inner {
+    padding: 0 16px;
+  }
+
+  .header-nav {
+    gap: 20px;
+  }
+
+  .header-link {
+    font-size: 12px;
+  }
+
+  .site-title {
+    font-size: 12px;
+  }
+}
