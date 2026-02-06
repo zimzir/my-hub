@@ -1,6 +1,12 @@
 /* ========================================
    CAMILA SIMSIROGLU - CUSTOM STYLES
    Nothing You Could Do / DM Sans / Paper Layout
+   FIXES:
+   - Restores LEFT SIDEBAR ("Blender Content") in mkdocs serve
+   - Removes white title bar ("Camila Simsiroglu" / "Table of contents" headers)
+   - Hides Home / Archive / About / Documentation (by href, NOT nth-child)
+   - Hover in sidebar turns WHITE (not green)
+   - Sidebar width controllable via --sidebar-width
    ======================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
@@ -22,7 +28,8 @@
   --color-accent-hover: #047857;
 
   --header-height: 40px;
-  --sidebar-width: 200px;
+  --sidebar-width: 240px;
+  /* <— CAMBIÁ ESTE VALOR para el tamaño del sidebar */
   --content-max-width: 800px;
 }
 
@@ -36,7 +43,7 @@ html {
 body {
   font-family: var(--font-body);
   color: var(--color-text);
-  background: var(--color-bg);
+  background: url('../images/fondo-6.png') center center / cover no-repeat fixed;
   line-height: 1.6;
 }
 
@@ -55,6 +62,18 @@ body {
   z-index: 100;
 }
 
+/* Pseudo-element that covers content scrolling behind header */
+.md-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  background: url('../images/fondo-6.png') center center / cover no-repeat fixed;
+  z-index: -1;
+}
+
 .md-header__inner {
   display: flex;
   justify-content: space-between;
@@ -71,7 +90,7 @@ body {
   align-items: center;
   gap: 10px;
   font-family: var(--font-header);
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 400;
   color: var(--color-text);
   text-decoration: none;
@@ -96,7 +115,7 @@ body {
 
 .header-link {
   font-family: var(--font-header);
-  font-size: 16px;
+  font-size: 19px;
   color: var(--color-text-muted);
   text-decoration: none;
 }
@@ -114,13 +133,12 @@ body {
 .header-link--active::after {
   content: '';
   position: absolute;
-  bottom: -3px;
+  bottom: -1px;
   left: 0;
   width: 100%;
   height: 1px;
   background: currentColor;
   transform: rotate(-1deg);
-  /* muy leve inclinación */
   transform-origin: left center;
 }
 
@@ -137,24 +155,7 @@ body {
 /* ----------------------------------------
    HOMEPAGE - FIXED BACKGROUND HERO
    ---------------------------------------- */
-.hero-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  overflow: hidden;
-}
-
-.hero-background img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-/* Alternative: If using the old .hero-image class */
+.hero-background,
 .hero-image {
   position: fixed;
   top: 0;
@@ -165,6 +166,7 @@ body {
   overflow: hidden;
 }
 
+.hero-background img,
 .hero-image img {
   width: 100%;
   height: 100%;
@@ -173,6 +175,16 @@ body {
 }
 
 /* Homepage specific styles */
+body:has(.hero-image),
+body:has(.hero-background) {
+  background: none;
+}
+
+body:has(.hero-image) .md-header::before,
+body:has(.hero-background) .md-header::before {
+  display: none;
+}
+
 body:has(.hero-image) .md-header,
 body:has(.hero-background) .md-header {
   background: transparent;
@@ -224,15 +236,12 @@ body:has(.hero-background) .header-link:hover {
 /* ----------------------------------------
    PAPER LAYOUT - CONTENT BLOCK (other pages)
    ---------------------------------------- */
-/* ----------------------------------------
-   PAPER LAYOUT - CONTENT BLOCK (other pages)
-   ---------------------------------------- */
 .md-container {
-  background: var(--color-bg);
+  background: transparent;
 }
 
 .md-main {
-  background: url('../images/fondo-6.png') center center / cover no-repeat fixed;
+  background: transparent;
   padding-top: var(--header-height);
 }
 
@@ -243,14 +252,146 @@ body:has(.hero-background) .header-link:hover {
   max-width: 100%;
 }
 
-/* Hide sidebar on documentation pages for cleaner look 
+/* ----------------------------------------
+   SIDEBAR - LEFT NAVIGATION (PRIMARY)
+   ---------------------------------------- */
 .md-sidebar {
-  display: none;
+  background: transparent;
 }
-*/
 
+.md-sidebar--primary {
+  width: var(--sidebar-width);
+  padding-top: 20px;
+}
 
-/* The white paper block */
+/* IMPORTANT:
+   On desktop, always show the primary sidebar.
+   (Sometimes it appears "gone" when all items are hidden.) */
+@media (min-width: 76.25em) {
+  .md-sidebar--primary {
+    display: block !important;
+    visibility: visible !important;
+  }
+}
+
+/* Nav base */
+.md-nav {
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 13px;
+}
+
+/* Remove the white "title bar" (Camila Simsiroglu) */
+.md-nav--primary .md-nav__title {
+  display: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Make sure lists/items stay transparent */
+.md-nav__list,
+.md-nav__item {
+  background: transparent;
+}
+
+/* Links styling */
+.md-nav__link {
+  color: var(--color-text-muted);
+  padding: 0.4rem 0;
+  background: transparent !important;
+}
+
+/* Hover: WHITE (not green) */
+.md-sidebar--primary .md-nav__link:hover,
+.md-sidebar--primary .md-nav__link:focus {
+  color: #ffffff !important;
+  background: transparent !important;
+}
+
+/* Active: WHITE */
+.md-sidebar--primary .md-nav__link--active {
+  color: #ffffff !important;
+  font-weight: 500;
+  background: transparent !important;
+}
+
+/* Nested section label (like Blender Content) */
+.md-nav__item--nested>.md-nav__link {
+  color: var(--color-text) !important;
+  font-weight: 500;
+}
+
+/* Remove any indicator/border on active items */
+.md-nav__link--active::before,
+.md-nav__item--active>.md-nav__link::before {
+  display: none !important;
+}
+
+/* ✅ HIDE specific top-level items WITHOUT nth-child
+   Replace the href values below with your real ones (inspect the <a href="...">) */
+.md-nav--primary a.md-nav__link[href="./"],
+.md-nav--primary a.md-nav__link[href="./archive/"],
+.md-nav--primary a.md-nav__link[href="./about/"],
+.md-nav--primary a.md-nav__link[href="./documentation/"] {
+  display: none !important;
+}
+
+/* Hide the now-empty <li> that contains those links */
+.md-nav--primary a.md-nav__link[href="./"]+.md-nav,
+.md-nav--primary a.md-nav__link[href="./archive/"]+.md-nav,
+.md-nav--primary a.md-nav__link[href="./about/"]+.md-nav,
+.md-nav--primary a.md-nav__link[href="./documentation/"]+.md-nav {
+  display: none !important;
+}
+
+.md-nav--primary a.md-nav__link[href="./"],
+.md-nav--primary a.md-nav__link[href="./archive/"],
+.md-nav--primary a.md-nav__link[href="./about/"],
+.md-nav--primary a.md-nav__link[href="./documentation/"] {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* ----------------------------------------
+   SIDEBAR - RIGHT (Table of Contents / SECONDARY)
+   ---------------------------------------- */
+.md-sidebar--secondary {
+  background: transparent;
+}
+
+/* Remove the white "Table of contents" bar */
+.md-sidebar--secondary .md-nav__title {
+  display: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.md-sidebar--secondary .md-nav {
+  background: transparent;
+}
+
+.md-sidebar--secondary .md-nav__link {
+  color: var(--color-text-muted);
+}
+
+.md-sidebar--secondary .md-nav__link:hover,
+.md-sidebar--secondary .md-nav__link:focus {
+  color: #ffffff !important;
+}
+
+.md-sidebar--secondary .md-nav__link--active {
+  color: #ffffff !important;
+}
+
+/* ----------------------------------------
+   The white paper block
+   ---------------------------------------- */
 .md-content {
   background: var(--color-bg-content);
   width: 100%;
@@ -265,7 +406,7 @@ body:has(.hero-background) .header-link:hover {
 }
 
 /* ----------------------------------------
-   HIDE HOME TITLE
+   HIDE PAGE TITLE (First H1)
    ---------------------------------------- */
 .md-typeset h1:first-child {
   display: none !important;
@@ -469,7 +610,7 @@ body:has(.hero-background) .header-link:hover {
    FOOTER
    ---------------------------------------- */
 .md-footer {
-  background: var(--color-bg);
+  background: transparent;
   border-top: none;
 }
 
@@ -517,14 +658,44 @@ body:has(.hero-background) .header-link:hover {
   }
 
   .header-link {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .site-title {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .md-content__inner {
     padding: 32px 24px;
   }
+}
+
+/* ----------------------------------------
+   SHOW SIDEBAR ONLY WHERE YOU WANT IT
+   (hide it on Home hero + Archive + About)
+   ---------------------------------------- */
+
+/* Homepage (hero) -> hide left sidebar */
+body:has(.hero-image) .md-sidebar--primary,
+body:has(.hero-background) .md-sidebar--primary {
+  display: none !important;
+}
+
+/* Archive page -> hide left sidebar */
+body:has(.archive-grid) .md-sidebar--primary,
+body:has(.archive-header) .md-sidebar--primary {
+  display: none !important;
+}
+
+/* About page -> hide left sidebar */
+body:has(.about-container) .md-sidebar--primary {
+  display: none !important;
+}
+
+/* (optional) if you also want to hide the RIGHT TOC on those pages */
+body:has(.hero-image) .md-sidebar--secondary,
+body:has(.hero-background) .md-sidebar--secondary,
+body:has(.archive-grid) .md-sidebar--secondary,
+body:has(.about-container) .md-sidebar--secondary {
+  display: none !important;
 }
