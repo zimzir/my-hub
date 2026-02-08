@@ -1,12 +1,6 @@
 /* ========================================
    CAMILA SIMSIROGLU - CUSTOM STYLES
    Nothing You Could Do / DM Sans / Paper Layout
-   FIXES:
-   - Restores LEFT SIDEBAR ("Blender Content") in mkdocs serve
-   - Removes white title bar ("Camila Simsiroglu" / "Table of contents" headers)
-   - Hides Home / Archive / About / Documentation (by href, NOT nth-child)
-   - Hover in sidebar turns WHITE (not green)
-   - Sidebar width controllable via --sidebar-width
    ======================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
@@ -29,7 +23,6 @@
 
   --header-height: 40px;
   --sidebar-width: 240px;
-  /* <— CAMBIÁ ESTE VALOR para el tamaño del sidebar */
   --content-max-width: 800px;
 }
 
@@ -62,7 +55,6 @@ body {
   z-index: 100;
 }
 
-/* Pseudo-element that covers content scrolling behind header */
 .md-header::before {
   content: '';
   position: absolute;
@@ -174,7 +166,6 @@ body {
   object-position: center;
 }
 
-/* Homepage specific styles */
 body:has(.hero-image),
 body:has(.hero-background) {
   background: none;
@@ -212,7 +203,6 @@ body:has(.hero-background) .md-footer {
   display: none;
 }
 
-/* Header text color on homepage (light text for dark background) */
 body:has(.hero-image) .site-title,
 body:has(.hero-background) .site-title {
   color: rgba(255, 255, 255, 0.9);
@@ -234,7 +224,7 @@ body:has(.hero-background) .header-link:hover {
 }
 
 /* ----------------------------------------
-   PAPER LAYOUT - CONTENT BLOCK (other pages)
+   PAPER LAYOUT
    ---------------------------------------- */
 .md-container {
   background: transparent;
@@ -253,7 +243,7 @@ body:has(.hero-background) .header-link:hover {
 }
 
 /* ----------------------------------------
-   SIDEBAR - LEFT NAVIGATION (PRIMARY)
+   SIDEBAR - LEFT (PRIMARY)
    ---------------------------------------- */
 .md-sidebar {
   background: transparent;
@@ -264,9 +254,6 @@ body:has(.hero-background) .header-link:hover {
   padding-top: 20px;
 }
 
-/* IMPORTANT:
-   On desktop, always show the primary sidebar.
-   (Sometimes it appears "gone" when all items are hidden.) */
 @media (min-width: 76.25em) {
   .md-sidebar--primary {
     display: block !important;
@@ -274,102 +261,53 @@ body:has(.hero-background) .header-link:hover {
   }
 }
 
-/* Nav base */
 .md-nav {
   background: transparent;
   font-family: var(--font-body);
   font-size: 13px;
 }
 
-/* Remove the white "title bar" (Camila Simsiroglu) */
 .md-nav--primary .md-nav__title {
   display: none !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  border: 0 !important;
-  padding: 0 !important;
-  margin: 0 !important;
 }
 
-/* Make sure lists/items stay transparent */
 .md-nav__list,
 .md-nav__item {
   background: transparent;
 }
 
-/* Links styling */
 .md-nav__link {
   color: var(--color-text-muted);
   padding: 0.4rem 0;
   background: transparent !important;
 }
 
-/* Hover: WHITE (not green) */
 .md-sidebar--primary .md-nav__link:hover,
 .md-sidebar--primary .md-nav__link:focus {
   color: #ffffff !important;
   background: transparent !important;
 }
 
-/* Active: WHITE */
 .md-sidebar--primary .md-nav__link--active {
   color: #ffffff !important;
   font-weight: 500;
   background: transparent !important;
 }
 
-/* Nested section label (like Blender Content) */
-.md-nav__item--nested>.md-nav__link {
-  color: var(--color-text) !important;
-  font-weight: 500;
-}
-
-/* Remove any indicator/border on active items */
 .md-nav__link--active::before,
 .md-nav__item--active>.md-nav__link::before {
   display: none !important;
 }
 
-/* ✅ HIDE specific top-level items WITHOUT nth-child
-   Replace the href values below with your real ones (inspect the <a href="...">) */
-.md-nav--primary a.md-nav__link[href="./"],
-.md-nav--primary a.md-nav__link[href="./archive/"],
-.md-nav--primary a.md-nav__link[href="./about/"],
-.md-nav--primary a.md-nav__link[href="./documentation/"] {
-  display: none !important;
-}
-
-/* Hide the now-empty <li> that contains those links */
-.md-nav--primary a.md-nav__link[href="./"]+.md-nav,
-.md-nav--primary a.md-nav__link[href="./archive/"]+.md-nav,
-.md-nav--primary a.md-nav__link[href="./about/"]+.md-nav,
-.md-nav--primary a.md-nav__link[href="./documentation/"]+.md-nav {
-  display: none !important;
-}
-
-.md-nav--primary a.md-nav__link[href="./"],
-.md-nav--primary a.md-nav__link[href="./archive/"],
-.md-nav--primary a.md-nav__link[href="./about/"],
-.md-nav--primary a.md-nav__link[href="./documentation/"] {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
 /* ----------------------------------------
-   SIDEBAR - RIGHT (Table of Contents / SECONDARY)
+   SIDEBAR - RIGHT (SECONDARY / TOC)
    ---------------------------------------- */
 .md-sidebar--secondary {
   background: transparent;
 }
 
-/* Remove the white "Table of contents" bar */
 .md-sidebar--secondary .md-nav__title {
   display: none !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  border: 0 !important;
-  padding: 0 !important;
-  margin: 0 !important;
 }
 
 .md-sidebar--secondary .md-nav {
@@ -390,7 +328,7 @@ body:has(.hero-background) .header-link:hover {
 }
 
 /* ----------------------------------------
-   The white paper block
+   CONTENT BLOCK (white paper)
    ---------------------------------------- */
 .md-content {
   background: var(--color-bg-content);
@@ -479,7 +417,6 @@ body:has(.hero-background) .header-link:hover {
   padding: 0;
 }
 
-/* Highlighted text */
 .md-typeset mark,
 .md-typeset .highlight {
   background: #fff740;
@@ -671,31 +608,160 @@ body:has(.hero-background) .header-link:hover {
 }
 
 /* ----------------------------------------
-   SHOW SIDEBAR ONLY WHERE YOU WANT IT
-   (hide it on Home hero + Archive + About)
+   HIDE SIDEBAR ON SPECIFIC PAGES
    ---------------------------------------- */
-
-/* Homepage (hero) -> hide left sidebar */
 body:has(.hero-image) .md-sidebar--primary,
-body:has(.hero-background) .md-sidebar--primary {
-  display: none !important;
-}
-
-/* Archive page -> hide left sidebar */
+body:has(.hero-background) .md-sidebar--primary,
 body:has(.archive-grid) .md-sidebar--primary,
-body:has(.archive-header) .md-sidebar--primary {
-  display: none !important;
-}
-
-/* About page -> hide left sidebar */
+body:has(.archive-header) .md-sidebar--primary,
 body:has(.about-container) .md-sidebar--primary {
   display: none !important;
 }
 
-/* (optional) if you also want to hide the RIGHT TOC on those pages */
 body:has(.hero-image) .md-sidebar--secondary,
 body:has(.hero-background) .md-sidebar--secondary,
 body:has(.archive-grid) .md-sidebar--secondary,
 body:has(.about-container) .md-sidebar--secondary {
   display: none !important;
+}
+
+/* ========================================
+   NAVIGATION - HIDE ITEMS & SHOW BLENDER CONTENT
+   
+   New mkdocs.yml structure:
+   1 - Home (hide)
+   2 - Archive (hide)
+   3 - About (hide)
+   4 - Blender Content (SHOW with arrow + children)
+   5 - 3D Example (SHOW)
+   ======================================== */
+
+/* Hide Home, Archive, About */
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(1),
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(2),
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(3) {
+  display: none !important;
+}
+
+/* ========================================
+   BLENDER CONTENT - COLLAPSIBLE SECTION
+   ======================================== */
+
+/* Style "Blender Content" header - make it clickable */
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(4)>label {
+  color: var(--color-text) !important;
+  font-weight: 500;
+  display: flex !important;
+  align-items: center;
+  cursor: pointer !important;
+  padding: 0.4rem 0;
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 10;
+}
+
+/* Make sure the label is always clickable */
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(4) {
+  position: relative;
+}
+
+/* Show the arrow icon */
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(4)>label .md-nav__icon {
+  display: inline-block !important;
+  margin-left: 6px;
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s;
+}
+
+/* Arrow rotation based on state */
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(4)>.md-nav__toggle:checked~label .md-nav__icon {
+  transform: rotate(0deg);
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(4)>.md-nav__toggle:not(:checked)~label .md-nav__icon {
+  transform: rotate(-90deg);
+}
+
+/* The toggle checkbox - visible but transparent to catch clicks */
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(4)>.md-nav__toggle {
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  opacity: 0;
+  cursor: pointer !important;
+  z-index: 20;
+  top: 0;
+  left: 0;
+}
+
+/* Children container */
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(4)>.md-nav {
+  padding-left: 16px;
+  margin-top: 8px;
+  transition: all 0.2s ease;
+}
+
+/* Show children when expanded (checked) */
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(4)>.md-nav__toggle:checked~.md-nav {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  max-height: 500px !important;
+  overflow: visible !important;
+}
+
+/* Hide children when collapsed (not checked) */
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(4)>.md-nav__toggle:not(:checked)~.md-nav {
+  display: none !important;
+  opacity: 0;
+  visibility: hidden;
+  max-height: 0;
+  overflow: hidden;
+}
+
+/* Only show direct children (Getting Started, Modes, Modifiers) */
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(4)>.md-nav>.md-nav__list>.md-nav__item {
+  display: block !important;
+}
+
+/* Hide any deeper nested items (the TOC sub-items) */
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(4)>.md-nav>.md-nav__list>.md-nav__item>.md-nav {
+  display: none !important;
+}
+
+/* Style the main nav links */
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(4)>.md-nav>.md-nav__list>.md-nav__item>.md-nav__link {
+  color: var(--color-text-muted);
+  padding: 0.3rem 0;
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(4)>.md-nav>.md-nav__list>.md-nav__item>.md-nav__link:hover {
+  color: #ffffff !important;
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(4)>.md-nav>.md-nav__list>.md-nav__item>.md-nav__link--active {
+  color: #ffffff !important;
+  font-weight: 500;
+}
+
+/* ========================================
+   3D EXAMPLE - SHOW IT
+   ======================================== */
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5) {
+  display: block !important;
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav__link {
+  color: var(--color-text-muted);
+  padding: 0.4rem 0;
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav__link:hover {
+  color: #ffffff !important;
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav__link--active {
+  color: #ffffff !important;
+  font-weight: 500;
 }

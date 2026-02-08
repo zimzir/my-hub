@@ -4,16 +4,20 @@ nav:
   - Home: index.md
   - Archive: archive.md
   - About: About-me.md
-  - Documentation:
-      - Blender Content:
-          - Getting Started: Blender Content/Getting-Started.md
-          - Modes in Blender: Blender Content/Modes-in-Blender copy.md
-          - Modifiers: Blender Content/Modifiers.md
-      - 3D Example: threejs-example.md
+  - Blender Content:
+      - Getting Started: Blender Content/Getting-Started.md
+      - Modes in Blender: Blender Content/Modes-in-Blender copy.md
+      - Modifiers: Blender Content/Modifiers.md
+  - 3D Example: threejs-example.md
 
 theme:
   name: material
   custom_dir: overrides
+  
+  features:
+    - navigation.sections
+    - navigation.expand
+    - toc.integrate  # QUITÁ esta línea si la tenés
 
   palette:
     scheme: default
@@ -21,7 +25,7 @@ theme:
     accent: teal
 
   font:
-    text: JetBrains Mono
+    text: DM Sans
     code: JetBrains Mono
 
   logo: images/logo.png
