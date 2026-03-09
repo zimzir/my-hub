@@ -1,5 +1,8 @@
 site_name: Camila Simsiroglu
 
+# En producción (GitHub Pages) debe ser la URL real, ej: https://TU_USUARIO.github.io/my-hub/
+site_url: ''
+
 nav:
   - Home: index.md
   - Archive: archive.md
@@ -9,6 +12,7 @@ nav:
       - Modes in Blender: Blender Content/Modes-in-Blender copy.md
       - Modifiers: Blender Content/Modifiers.md
   - 3D Example: threejs-example.md
+  - Documentation: documentation.md  # landing de Documentation (oculto en sidebar)
 
 theme:
   name: material

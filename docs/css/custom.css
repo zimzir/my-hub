@@ -634,18 +634,14 @@ body:has(.about-container) .md-sidebar--secondary {
 /* ========================================
    NAVIGATION - HIDE ITEMS & SHOW BLENDER CONTENT
    
-   New mkdocs.yml structure:
-   1 - Home (hide)
-   2 - Archive (hide)
-   3 - About (hide)
-   4 - Blender Content (SHOW with arrow + children)
-   5 - 3D Example (SHOW)
+   Nav: 1 Home, 2 Archive, 3 About (hide), 4 Blender Content, 5 3D Example (show), 6 Documentation (hide)
    ======================================== */
 
-/* Hide Home, Archive, About */
+/* Hide Home, Archive, About, Documentation */
 .md-nav--primary>.md-nav__list>.md-nav__item:nth-child(1),
 .md-nav--primary>.md-nav__list>.md-nav__item:nth-child(2),
-.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(3) {
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(3),
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(6) {
   display: none !important;
 }
 
