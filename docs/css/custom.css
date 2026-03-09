@@ -24,6 +24,10 @@
   --header-height: 40px;
   --sidebar-width: 240px;
   --content-max-width: 800px;
+  /* Barra izquierda (Blender Content, 3D Example): negativo = más a la izquierda */
+  --sidebar-primary-offset-left: -24px;
+  /* Barra derecha (TOC: First Impressions, Navigation...): más = más a la derecha */
+  --sidebar-secondary-offset-right: 24px;
 }
 
 /* ----------------------------------------
@@ -252,6 +256,7 @@ body:has(.hero-background) .header-link:hover {
 .md-sidebar--primary {
   width: var(--sidebar-width);
   padding-top: 20px;
+  margin-left: var(--sidebar-primary-offset-left);
 }
 
 @media (min-width: 76.25em) {
@@ -304,6 +309,7 @@ body:has(.hero-background) .header-link:hover {
    ---------------------------------------- */
 .md-sidebar--secondary {
   background: transparent;
+  margin-left: var(--sidebar-secondary-offset-right);
 }
 
 .md-sidebar--secondary .md-nav__title {
@@ -674,13 +680,16 @@ body:has(.about-container) .md-sidebar--secondary {
   transition: transform 0.2s;
 }
 
-/* Arrow rotation based on state */
+/* Arrow: cerrado = arriba, abierto = abajo (nunca a la derecha) */
 .md-nav--primary>.md-nav__list>.md-nav__item:nth-child(4)>.md-nav__toggle:checked~label .md-nav__icon {
   transform: rotate(0deg);
+  /* abajo = expandido */
 }
 
-.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(4)>.md-nav__toggle:not(:checked)~label .md-nav__icon {
-  transform: rotate(-90deg);
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(4)>.md-nav__toggle:not(:checked)~label .md-nav__icon,
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(4)>.md-nav__toggle:indeterminate~label .md-nav__icon {
+  transform: rotate(-180deg);
+  /* arriba = cerrado (y estado intermedio, nunca izquierda) */
 }
 
 /* The toggle checkbox - visible but transparent to catch clicks */

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block header %}
-  {% include "partials/header.html" %}
+{% include "partials/header.html" %}
 {% endblock %}
 
 {% block footer %}
@@ -12,4 +12,41 @@
     </div>
   </div>
 </footer>
+<script>
+  (function () {
+    var path = window.location.pathname;
+    var isDocIntro = path.indexOf('documentation') !== -1;
+    var isThreeJsPage = path.indexOf('threejs') !== -1;
+    var isBlenderDocPage = path.indexOf('Getting-Started') !== -1 || path.indexOf('Modifiers') !== -1 || path.indexOf('Modes-in-Blender') !== -1;
+    var useBlenderOneClick = isDocIntro || isThreeJsPage;
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var blenderItem = document.querySelector('.md-nav--primary .md-nav__list > .md-nav__item:nth-child(4)');
+      var toggle = blenderItem ? blenderItem.querySelector(':scope > .md-nav__toggle') : null;
+      if (!toggle) return;
+
+      if (useBlenderOneClick) {
+        toggle.checked = false;
+        toggle.indeterminate = false;
+        var childNav = blenderItem.querySelector(':scope > .md-nav');
+        blenderItem.addEventListener('click', function (e) {
+          if (childNav && childNav.contains(e.target)) return;
+          e.preventDefault();
+          e.stopPropagation();
+          toggle.indeterminate = false;
+          toggle.checked = !toggle.checked;
+        }, true);
+      }
+
+      if (isBlenderDocPage) {
+        toggle.addEventListener('change', function () {
+          if (!toggle.checked) {
+            var docLink = document.getElementById('doc-link');
+            if (docLink) window.location.href = docLink.href;
+          }
+        });
+      }
+    });
+  })();
+</script>
 {% endblock %}

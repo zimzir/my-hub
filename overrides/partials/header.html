@@ -5,14 +5,26 @@
       CAMILA SIMSIROGLU
     </a>
     <nav class="header-nav">
-      <a href="{{ config.site_url }}Blender%20Content/Getting-Started/"
-        class="header-link {% if 'Blender' in page.url or 'documentation' in page.url|lower %}header-link--active{% endif %}">
+      <a href="{{ config.site_url }}documentation/" class="header-link" id="doc-link">
         DOCUMENTATION
       </a>
-      <a href="{{ config.site_url }}archive/"
-        class="header-link {% if 'archive' in page.url|lower %}header-link--active{% endif %}">
+      <a href="{{ config.site_url }}archive/" class="header-link" id="archive-link">
         ARCHIVE - PORFOLIO
       </a>
     </nav>
   </div>
 </header>
+
+<script>
+  // Simple JS to handle active state
+  const currentPath = window.location.pathname;
+  const docLink = document.getElementById('doc-link');
+  const archiveLink = document.getElementById('archive-link');
+
+  if (currentPath.includes('documentation') || currentPath.includes('Blender') || currentPath.includes('threejs')) {
+    docLink.classList.add('header-link--active');
+  }
+  if (currentPath.includes('archive')) {
+    archiveLink.classList.add('header-link--active');
+  }
+</script>
