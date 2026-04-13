@@ -15,8 +15,11 @@
         <link rel="next" href="../Modifiers/">
       
       
+        
+      
+      
       <link rel="icon" href="../../images/logo.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -24,10 +27,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -41,8 +44,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=JetBrains+Mono:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"JetBrains Mono";--md-code-font:"JetBrains Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"DM Sans";--md-code-font:"JetBrains Mono"}</style>
       
     
     
@@ -52,7 +55,6 @@
     
       
 
-    
     
     
   </head>
@@ -82,18 +84,36 @@
     </div>
     
     
-  <header class="md-header">
+<header class="md-header">
   <div class="md-header__inner">
     <a href="/" class="site-title">
       <span class="header-dot"></span>
-      Camila SimsiROGLUuu
+      CAMILA SIMSIROGLU
     </a>
     <nav class="header-nav">
-      <a href="NoneBlender%20Content/Getting-Started/" class="header-link">Documentation</a>
-      <a href="Nonearchive/" class="header-link">Archive/Portfolio</a>
+      <a href="documentation/" class="header-link" id="doc-link">
+        DOCUMENTATION
+      </a>
+      <a href="archive/" class="header-link" id="archive-link">
+        ARCHIVE - PORFOLIO
+      </a>
     </nav>
   </div>
 </header>
+
+<script>
+  // Simple JS to handle active state
+  const currentPath = window.location.pathname;
+  const docLink = document.getElementById('doc-link');
+  const archiveLink = document.getElementById('archive-link');
+
+  if (currentPath.includes('documentation') || currentPath.includes('Blender') || currentPath.includes('threejs')) {
+    docLink.classList.add('header-link--active');
+  }
+  if (currentPath.includes('archive')) {
+    archiveLink.classList.add('header-link--active');
+  }
+</script>
 
     <div class="md-container" data-md-component="container">
       
@@ -136,9 +156,16 @@
       <a href="../.." class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Home
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -156,9 +183,16 @@
       <a href="../../archive/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Archive
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -176,9 +210,43 @@
       <a href="../../About-me/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     About
+  
+
+    
   </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cv-contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CV & Contact
+  
+
+    
+  </span>
+  
   
 
       </a>
@@ -197,6 +265,7 @@
     
     
     
+    
       
         
         
@@ -207,63 +276,35 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
+  
   
   <span class="md-ellipsis">
-    Documentation
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            Documentation
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
     
   
-  
-  
-    
-    
-    
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
     Blender Content
+  
+
+    
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4_1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            Blender Content
+            
+  
+    Blender Content
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -277,9 +318,16 @@
       <a href="../Getting-Started/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Getting Started
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -307,9 +355,16 @@
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
+  
   <span class="md-ellipsis">
+    
+  
     Modes in Blender
+  
+
+    
   </span>
+  
   
 
           <span class="md-nav__icon md-icon"></span>
@@ -318,9 +373,16 @@
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Modes in Blender
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -343,7 +405,9 @@
         <li class="md-nav__item">
   <a href="#object-mode" class="md-nav__link">
     <span class="md-ellipsis">
-      Object Mode
+      
+        Object Mode
+      
     </span>
   </a>
   
@@ -352,7 +416,9 @@
         <li class="md-nav__item">
   <a href="#edit-mode" class="md-nav__link">
     <span class="md-ellipsis">
-      Edit Mode
+      
+        Edit Mode
+      
     </span>
   </a>
   
@@ -362,7 +428,9 @@
           <li class="md-nav__item">
   <a href="#what-is-a-mesh" class="md-nav__link">
     <span class="md-ellipsis">
-      What is a Mesh?
+      
+        What is a Mesh?
+      
     </span>
   </a>
   
@@ -376,7 +444,9 @@
         <li class="md-nav__item">
   <a href="#basic-actions-in-edit-mode" class="md-nav__link">
     <span class="md-ellipsis">
-      Basic Actions in Edit Mode
+      
+        Basic Actions in Edit Mode
+      
     </span>
   </a>
   
@@ -385,7 +455,9 @@
         <li class="md-nav__item">
   <a href="#sculpt-mode" class="md-nav__link">
     <span class="md-ellipsis">
-      Sculpt Mode
+      
+        Sculpt Mode
+      
     </span>
   </a>
   
@@ -410,9 +482,16 @@
       <a href="../Modifiers/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Modifiers
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -427,10 +506,9 @@
     </li>
   
 
-              
-            
-              
-                
+    
+      
+      
   
   
   
@@ -439,20 +517,46 @@
       <a href="../../threejs-example/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     3D Example
+  
+
+    
   </span>
+  
   
 
       </a>
     </li>
   
 
-              
-            
-          </ul>
-        </nav>
+    
       
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -486,7 +590,9 @@
         <li class="md-nav__item">
   <a href="#object-mode" class="md-nav__link">
     <span class="md-ellipsis">
-      Object Mode
+      
+        Object Mode
+      
     </span>
   </a>
   
@@ -495,7 +601,9 @@
         <li class="md-nav__item">
   <a href="#edit-mode" class="md-nav__link">
     <span class="md-ellipsis">
-      Edit Mode
+      
+        Edit Mode
+      
     </span>
   </a>
   
@@ -505,7 +613,9 @@
           <li class="md-nav__item">
   <a href="#what-is-a-mesh" class="md-nav__link">
     <span class="md-ellipsis">
-      What is a Mesh?
+      
+        What is a Mesh?
+      
     </span>
   </a>
   
@@ -519,7 +629,9 @@
         <li class="md-nav__item">
   <a href="#basic-actions-in-edit-mode" class="md-nav__link">
     <span class="md-ellipsis">
-      Basic Actions in Edit Mode
+      
+        Basic Actions in Edit Mode
+      
     </span>
   </a>
   
@@ -528,7 +640,9 @@
         <li class="md-nav__item">
   <a href="#sculpt-mode" class="md-nav__link">
     <span class="md-ellipsis">
-      Sculpt Mode
+      
+        Sculpt Mode
+      
     </span>
   </a>
   
@@ -544,20 +658,26 @@
           
           
             <div class="md-content" data-md-component="content">
+              
               <article class="md-content__inner md-typeset">
                 
                   
 
 
+
+<div class="documentation-area" aria-hidden="true" style="position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);"></div>
+
 <h1 id="modes-in-blender">Modes in Blender</h1>
-<p><center> 
+<center> 
 ★ ★ ★ Object, Edit, and Sculpt ★ ★ ★
-</center><br></p>
+</center>
+<p><br></p>
 <p>Blender has <strong>different modes</strong> depending on what you want to do with your objects. The three main ones we’ll use are:</p>
 <p><a href="#object-mode">Object Mode</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#edit-mode">Edit Mode</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#sculpt-mode">Sculpt Mode</a></p>
-<p><center>
+<center>
 <img src="/images/Modes-in-Blender/modes-in-blender.gif" alt="Modes in Blender GIF" width="500">
-</center></p>
+</center>
+
 <ul>
 <li>
 <p><strong>Object Mode</strong>: The big picture. Move, rotate, scale, or duplicate entire objects.</p>
@@ -580,40 +700,46 @@
 <p><strong>Add objects</strong>: <code>Shift + A</code> → choose Mesh (cube, sphere, cylinder, etc.).</p>
 </li>
 </ul>
-<p><center>
+<center>
 <img src="/images/Modes-in-Blender/add-object.gif" alt="Add Objects GIF" width="500">
-</center></p>
+</center>
+
 <ul>
 <li><strong>Duplicate</strong>: <code>Shift + D</code> makes a copy of your object.</li>
 </ul>
-<p><center>
+<center>
 <img src="/images/Modes-in-Blender/duplicate.gif" alt="Duplicate GIF" width="500">
-</center></p>
+</center>
+
 <ul>
 <li><strong>Delete objects</strong>: Select and press <code>X</code>, then delete.</li>
 </ul>
-<p><center>
+<center>
 <img src="/images/Modes-in-Blender/delete.gif" alt="Delete GIF" width="500">
-</center></p>
+</center>
+
 <ul>
 <li><strong>Hide/Unhide</strong>: Press <code>H</code> to hide, <code>Alt + H</code> (<code class="mac">Option + H</code> in Mac) to unhide. Or select them in the outliner and <strong>click on the eye icon</strong> next to the object's name (the eye shuts when object is hidden).</li>
 </ul>
-<p><center>
+<center>
 <img src="/images/Modes-in-Blender/hide.gif" alt="Hide GIF" width="500">
-</center></p>
+</center>
+
 <ul>
 <li><strong>Move</strong> <code>G</code>, <strong>Rotate</strong> <code>R</code>, <strong>Scale</strong> <code>S</code>: The core transformations. Add <code>X, Y, Z</code> after the key to <strong>lock it to an axis</strong>. <small>Click anywhere to finish action.</small></li>
 </ul>
-<p><center>
+<center>
 <img src="/images/Modes-in-Blender/move-rotate-scale.gif" alt="Move Rotate Scale GIF" width="500"><br><small>Transformation in Z axis</small>
-</center></p>
+</center>
+
 <p>Notice that all transformations (location, rotation, and scale) show up live in the <strong>Item panel</strong> on the right. Open it by pressing <code>N</code>. </p>
 <ul>
 <li><strong>Apply transforms</strong>: <code>Ctrl + A</code>(<code class="mac">Command + A</code> in Mac) → Apply Location, Rotation, or Scale. </li>
 </ul>
-<p><center>
+<center>
 <img src="/images/Modes-in-Blender/apply-transforms.gif" alt="Apply Transforms GIF" width="500">
-</center></p>
+</center>
+
 <p>This “locks in” your changes and is <strong>essential before exporting for 3D printing</strong>. Ideally, before exporting, your object should have:</p>
 <p>Location: 0 on X, Y, Z</p>
 <p>Rotation: 0 on X, Y, Z</p>
@@ -626,33 +752,36 @@
 <h3 id="what-is-a-mesh">What is a Mesh?</h3>
 <p>A <strong>mesh</strong> is the 3D structure of most objects in Blender. It’s made up of three building blocks:</p>
 <ul>
-<li>
-<p><strong>Vertices</strong>: Points in 3D space.
+<li><strong>Vertices</strong>: Points in 3D space.</li>
+</ul>
 <center>
 <img src="/images/Modes-in-Blender/vertices.jpg" alt="Vertices" width="300">
-</center></p>
-</li>
-<li>
-<p><strong>Edges</strong>: Lines connecting vertices.</p>
-</li>
+</center>
+
+<ul>
+<li><strong>Edges</strong>: Lines connecting vertices.</li>
 </ul>
-<p><center>
+<center>
 <img src="/images/Modes-in-Blender/edges.jpg" alt="Edges" width="300">
-</center></p>
+</center>
+
 <ul>
 <li><strong>Faces</strong>: Flat surfaces enclosed by edges.</li>
 </ul>
-<p><center>
+<center>
 <img src="/images/Modes-in-Blender/faces.jpg" alt="Faces" width="300">
-</center></p>
+</center>
+
 <p>You can switch between vertices, edges, and faces by clicking the icons to the right of “Edit Mode,” or use the shortcuts: <code>1</code> for vertices, <code>2</code> for edges, and <code>3</code> for faces.</p>
-<p><center>
+<center>
 <img src="/images/Modes-in-Blender/selection-edit-mode.jpg" alt="Selecting Element in Edit Mode" width="200">
-</center></p>
+</center>
+
 <p>Like this:</p>
-<p><center>
+<center>
 <img src="/images/Modes-in-Blender/switching-through-elements.gif" alt="Switching Through Elements GIF" width="500"><br><small>I am using Wireframe View.</small>
-</center></p>
+</center>
+
 <p>Just like in Object Mode, you can <strong>select everything</strong> in the scene by pressing <code>A</code>.</p>
 <h2 id="basic-actions-in-edit-mode">Basic Actions in Edit Mode</h2>
 <p>Now that you know what a mesh is, here’s what you can do inside Edit Mode:</p>
@@ -664,31 +793,36 @@
 <p>Press <code>S</code> to scale.</p>
 <p>You can constrain the transformation to an axis by pressing <code>X</code>, <code>Y</code>, or <code>Z</code> after <code>G</code>, <code>R</code>, or <code>S</code>. <small>Click anywhere to finish action.</small></p>
 <p>You can also <strong>type a number</strong> after pressing <code>G</code>, <code>R</code>, or <code>S</code> <strong>to move, rotate, or scale by an exact amount</strong>. For example, press <code>A</code> to select everything, <code>G</code>, then <code>X</code>, then type <code>2</code>, and the selection moves exactly 2 units along the X axis.</p>
-<p><center>
+<center>
 <img src="/images/Modes-in-Blender/adding-numbers-to-transformations.gif" alt="Adding Numbers To Transformations" width="500">
-</center></p>
+</center>
+
 <ul>
 <li><strong>Extrude</strong>: press <code>E</code> to creates a new geometry from your selection. Like stretching a face or edge into a new shape by dragging the cursor. <small>Click anywhere to finish action.</small></li>
 </ul>
-<p><center>
+<center>
 <img src="/images/Modes-in-Blender/extrude.gif" alt="Extrude GIF" width="500">
-</center></p>
+</center>
+
 <ul>
 <li><strong>Loop Cut</strong>: press <code>Ctrl + R</code>(<code class="mac">Command + R</code> in Mac) to add a loop cut, which creates a new edge loop around your mesh. This is useful for adding more detail or controlling how your mesh deforms. <small>Click anywhere to finish action.</small></li>
 </ul>
-<p><center>
+<center>
 <img src="/images/Modes-in-Blender/loop-cut.gif" alt="Loop Cut GIF" width="500"><br><small>Here I added a loop cut and then scaled it.</small>
-</center> </p>
+</center>
+
 <ul>
 <li><strong>Bevel</strong>: smooths out edges or corners by creating extra geometry. Select an edge (or a group of edges), then press <code>Ctrl + B</code> (<code class="mac">Command + B</code> in Mac) and drag your mouse. You can increase or decrease the number of segments for a smoother bevel.</li>
 </ul>
-<p><center>
+<center>
 <img src="/images/Modes-in-Blender/bevel.gif" alt="Bevel GIF" width="500">
-</center></p>
+</center>
+
 <p>Let’s add a cube as an example to see the <strong>difference when beveling an edge and a vertex</strong>:</p>
-<p><center>
+<center>
 <img src="/images/Modes-in-Blender/bevel-cube.gif" alt="Bevel Cube GIF" width="500">
-</center></p>
+</center>
+
 <div style="display: flex; justify-content: center; gap: 20px; text-align: center;">
   <div>
     <img src="/images/Modes-in-Blender/vertex-bevel.jpg" alt="Vertex Bevel" width="190"><br>
@@ -705,30 +839,35 @@
 <h2 id="sculpt-mode">Sculpt Mode</h2>
 <p>Alright! We’ve covered 2 out of the 3 main modes in Blender. Now let’s take a peek at the last one: <strong>Sculpt Mode</strong>.  </p>
 <p>Think of it as <strong>digital clay</strong> — instead of moving points and edges, you push, pull, smooth, and shape objects more freely. It’s especially useful for creating organic forms like faces, characters, or natural surfaces.  </p>
-<p><center>
+<center>
 (ง •̀_•́)ง Let’s dig in.
-</center></p>
+</center>
+
 <p>Press <code>Shift + A</code> to add a <strong>UV Sphere</strong>, then switch to Sculpt Mode from the same drop-down menu where you find Object and Edit Mode. This will be our workspace.  </p>
-<p><center>
+<center>
 <img src="/images/Modes-in-Blender/open-sculpt-mode.gif" alt="Open Sculpt Mode GIF" width="500">
-</center></p>
+</center>
+
 <p>At the bottom of the viewport you’ll find the <strong>brush menu</strong>. Each brush mimics a hand-sculpting action. Let’s start with the <strong>Grab</strong> brush — click and drag to pull part of the surface.  </p>
-<p><center>
+<center>
 <img src="/images/Modes-in-Blender/extend-tools.gif" alt="Extend Tools and Grab GIF" width="500">
-</center></p>
+</center>
+
 <p>Hmm… not much happened, right? That’s because two important settings are low by default: <strong>Radius</strong> and <strong>Strength</strong>.  </p>
 <ul>
 <li><strong>Radius</strong> controls how much of the surface area the brush affects. Hover your mouse in the viewport and you’ll see a circle around the cursor. Press <code>F</code> and move your mouse to adjust the size (click to confirm).  </li>
 </ul>
-<p><center>
+<center>
 <img src="/images/Modes-in-Blender/increase-radius.gif" alt="Radius GIF" width="500">
-</center></p>
+</center>
+
 <ul>
 <li><strong>Strength</strong> controls how strongly the brush deforms the mesh. You’ll see it as a smaller circle inside the main one. Press <code>Shift + F</code> and move your mouse to adjust (click to confirm).  </li>
 </ul>
-<p><center>
+<center>
 <img src="/images/Modes-in-Blender/strength.gif" alt="Strength GIF" width="500">
-</center></p>
+</center>
+
 <p><small>This is just a quick look. Right now, the UV Sphere may look jagged because it doesn’t have enough geometry to sculpt smoothly. </small> </p>
 <hr />
 <p>In the next module, when we learn about <strong>modifiers</strong>, we’ll see how to prepare objects for proper sculpting and how to combine the 3 modes more efficiently.  </p>
@@ -761,6 +900,72 @@
     </div>
   </div>
 </footer>
+<script>
+  (function () {
+    var path = window.location.pathname;
+    var isDocIntro = path.indexOf('documentation') !== -1;
+    var isThreeJsPage = path.indexOf('threejs') !== -1;
+    var isBlenderDocPage = path.indexOf('Getting-Started') !== -1 || path.indexOf('Modifiers') !== -1 || path.indexOf('Modes-in-Blender') !== -1;
+    var useBlenderOneClick = isDocIntro || isThreeJsPage;
+
+    function normalizeBlenderNavToggle(toggle, forceCollapsed) {
+      if (!toggle) return;
+      /* La CLASE md-toggle--indeterminate es lo que rota el ::after a 90° (“flecha al costado”).
+         Solo poner indeterminate=false no alcanza; Material no quita la clase. */
+      toggle.classList.remove('md-toggle--indeterminate');
+      toggle.indeterminate = false;
+      if (forceCollapsed) toggle.checked = false;
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      /* Nav order (mkdocs.yml): 1 Home, 2 Archive, 3 About, 4 CV & Contact, 5 Blender Content, … */
+      var blenderItem = document.querySelector('.md-nav--primary .md-nav__list > .md-nav__item:nth-child(5)');
+      var toggle = blenderItem ? blenderItem.querySelector(':scope > .md-nav__toggle') : null;
+      if (!toggle) return;
+
+      /*
+       * Documentation / 3D: Material deja indeterminate + clase; 1er clic solo limpia eso.
+       * Quitamos clase/propiedad y (si aplica) cerramos; repetimos en rAF/timeout por si instant.js corre después.
+       */
+      if (useBlenderOneClick) {
+        normalizeBlenderNavToggle(toggle, true);
+        requestAnimationFrame(function () {
+          normalizeBlenderNavToggle(toggle, true);
+          requestAnimationFrame(function () {
+            normalizeBlenderNavToggle(toggle, true);
+          });
+        });
+        setTimeout(function () {
+          normalizeBlenderNavToggle(toggle, true);
+        }, 0);
+        setTimeout(function () {
+          normalizeBlenderNavToggle(toggle, true);
+        }, 100);
+
+        var childNav = blenderItem.querySelector(':scope > .md-nav');
+        blenderItem.addEventListener('click', function (e) {
+          if (childNav && childNav.contains(e.target)) return;
+          e.preventDefault();
+          e.stopPropagation();
+          normalizeBlenderNavToggle(toggle, false);
+          toggle.checked = !toggle.checked;
+          toggle.dispatchEvent(new Event('change', { bubbles: true }));
+        }, true);
+      } else {
+        normalizeBlenderNavToggle(toggle, false);
+      }
+
+      if (isBlenderDocPage) {
+        toggle.addEventListener('change', function () {
+          if (!toggle.checked) {
+            var docLink = document.getElementById('doc-link');
+            if (docLink) window.location.href = docLink.href;
+          }
+        });
+      }
+    });
+  })();
+</script>
 
     </div>
     <div class="md-dialog" data-md-component="dialog">
@@ -768,10 +973,13 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.expand"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.60a45f97.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
       

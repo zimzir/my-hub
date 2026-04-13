@@ -7,5 +7,9 @@ hide:
 ---
 
 <div class="hero-image">
-  <img src="images/index/fondo-2.png" alt="">
+  <img src="images/backgrounds/homepage-bg.png" alt="">
+</div>
+
+<div class="hero-footer">
+  <a href="cv-contact/" class="hero-footer-link">CV &amp; Contact</a>
 </div>

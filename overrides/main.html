@@ -20,22 +20,51 @@
     var isBlenderDocPage = path.indexOf('Getting-Started') !== -1 || path.indexOf('Modifiers') !== -1 || path.indexOf('Modes-in-Blender') !== -1;
     var useBlenderOneClick = isDocIntro || isThreeJsPage;
 
+    function normalizeBlenderNavToggle(toggle, forceCollapsed) {
+      if (!toggle) return;
+      /* La CLASE md-toggle--indeterminate es lo que rota el ::after a 90° (“flecha al costado”).
+         Solo poner indeterminate=false no alcanza; Material no quita la clase. */
+      toggle.classList.remove('md-toggle--indeterminate');
+      toggle.indeterminate = false;
+      if (forceCollapsed) toggle.checked = false;
+    }
+
     document.addEventListener('DOMContentLoaded', function () {
-      var blenderItem = document.querySelector('.md-nav--primary .md-nav__list > .md-nav__item:nth-child(4)');
+      /* Nav order (mkdocs.yml): 1 Home, 2 Archive, 3 About, 4 CV & Contact, 5 Blender Content, … */
+      var blenderItem = document.querySelector('.md-nav--primary .md-nav__list > .md-nav__item:nth-child(5)');
       var toggle = blenderItem ? blenderItem.querySelector(':scope > .md-nav__toggle') : null;
       if (!toggle) return;
 
+      /*
+       * Documentation / 3D: Material deja indeterminate + clase; 1er clic solo limpia eso.
+       * Quitamos clase/propiedad y (si aplica) cerramos; repetimos en rAF/timeout por si instant.js corre después.
+       */
       if (useBlenderOneClick) {
-        toggle.checked = false;
-        toggle.indeterminate = false;
+        normalizeBlenderNavToggle(toggle, true);
+        requestAnimationFrame(function () {
+          normalizeBlenderNavToggle(toggle, true);
+          requestAnimationFrame(function () {
+            normalizeBlenderNavToggle(toggle, true);
+          });
+        });
+        setTimeout(function () {
+          normalizeBlenderNavToggle(toggle, true);
+        }, 0);
+        setTimeout(function () {
+          normalizeBlenderNavToggle(toggle, true);
+        }, 100);
+
         var childNav = blenderItem.querySelector(':scope > .md-nav');
         blenderItem.addEventListener('click', function (e) {
           if (childNav && childNav.contains(e.target)) return;
           e.preventDefault();
           e.stopPropagation();
-          toggle.indeterminate = false;
+          normalizeBlenderNavToggle(toggle, false);
           toggle.checked = !toggle.checked;
+          toggle.dispatchEvent(new Event('change', { bubbles: true }));
         }, true);
+      } else {
+        normalizeBlenderNavToggle(toggle, false);
       }
 
       if (isBlenderDocPage) {
