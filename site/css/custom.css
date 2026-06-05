@@ -473,20 +473,12 @@ body:has(.hero-background) .header-link:hover {
 }
 
 /* ----------------------------------------
-   ARCHIVE PAGE (panel oscuro + rejilla tipo galería)
+   ARCHIVE PAGE (rejilla tipo galería, mismo papel blanco del sitio)
    ---------------------------------------- */
-.archive-stage {
-  background: #0a0a0a;
-  color: rgba(255, 255, 255, 0.92);
-  padding: clamp(28px, 4vw, 48px) clamp(24px, 3vw, 40px);
-  width: 100%;
-  box-sizing: border-box;
-}
-
 .archive-header {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid var(--color-border);
   padding-bottom: 1rem;
-  margin-bottom: clamp(28px, 4vw, 40px);
+  margin-bottom: clamp(24px, 3vw, 36px);
 }
 
 .archive-header h1 {
@@ -495,17 +487,25 @@ body:has(.hero-background) .header-link:hover {
   font-weight: 500;
   margin: 0;
   letter-spacing: -0.02em;
-  color: rgba(255, 255, 255, 0.95);
+  color: var(--color-text);
 }
 
-/* Muchas columnas en pantallas anchas; proporciones naturales; filas alineadas arriba */
+/*
+ * Rejilla: en escritorio 5 columnas fijas (5 proyectos por línea); tablet/móvil fluido.
+ */
 .archive-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 148px), 1fr));
-  gap: clamp(24px, 3.5vw, 44px) clamp(20px, 2.5vw, 36px);
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: clamp(18px, 2.2vw, 28px) clamp(14px, 1.8vw, 22px);
   align-items: start;
   width: 100%;
   max-width: 100%;
+}
+
+@media (min-width: 960px) {
+  body:has(.archive-grid) .archive-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
 }
 
 .archive-item {
@@ -533,40 +533,34 @@ body:has(.hero-background) .header-link:hover {
 
 .archive-item-title {
   font-family: var(--font-heading);
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.35;
   margin: 0;
-  color: rgba(255, 255, 255, 0.94);
+  color: var(--color-text);
   text-align: left;
   width: 100%;
   transition: color 0.2s ease;
 }
 
 .archive-item:hover .archive-item-title {
-  color: #5eead4;
+  color: var(--color-accent);
 }
 
 .archive-item-meta {
   font-family: var(--font-body);
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 400;
-  line-height: 1.4;
-  color: rgba(255, 255, 255, 0.5);
-  margin: 0.35rem 0 0;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+  margin: 0.4rem 0 0;
   text-align: left;
   width: 100%;
 }
 
-@media (min-width: 1100px) {
+@media (max-width: 380px) {
   .archive-grid {
-    grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
-  }
-}
-
-@media (min-width: 1500px) {
-  .archive-grid {
-    grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
+    grid-template-columns: 1fr;
   }
 }
 
@@ -574,6 +568,12 @@ body:has(.hero-background) .header-link:hover {
 body:has(.archive-grid) .md-main__inner {
   padding-left: 30px;
   padding-right: 30px;
+}
+
+/* Material: .md-grid { max-width: 61rem } — deja el bloque central angosto; en archive usamos todo el ancho. */
+body:has(.archive-grid) .md-main__inner.md-grid {
+  max-width: none;
+  width: 100%;
 }
 
 body:has(.archive-grid) .md-content {
@@ -854,13 +854,14 @@ body:has(.cv-contact-page) .md-sidebar--secondary {
 }
 
 /* ========================================
-   NAVIGATION - HIDE ITEMS & SHOW BLENDER CONTENT
-   
-   Nav: 1 Home, 2 Archive, 3 About, 4 CV & Contact, 5 Blender Content, 6 3D Example, 7 Documentation
-   Hide: 1, 2, 3, 7. Show: 4 CV&Contact, 5 Blender Content (collapsible), 6 3D Example
+   NAVIGATION - HIDE ITEMS & SHOW CONTENT
+
+   Nav: 1 Home, 2 Archive, 3 About, 4 CV & Contact, 5 Blender Content,
+        6 3D Example, 7 Documentation (landing, hidden), 8 PCB prototyping
+   Hide: 1, 2, 3, 7. Show: 4 CV&Contact, 5 Blender Content, 6 3D Example, 8 PCB prototyping
    ======================================== */
 
-/* Hide Home, Archive, About, Documentation */
+/* Hide Home, Archive, About, Documentation landing */
 .md-nav--primary>.md-nav__list>.md-nav__item:nth-child(1),
 .md-nav--primary>.md-nav__list>.md-nav__item:nth-child(2),
 .md-nav--primary>.md-nav__list>.md-nav__item:nth-child(3),
@@ -1056,6 +1057,102 @@ body:has(.documentation-landing) .documentation-landing > p {
 }
 
 .md-nav--primary>.md-nav__list>.md-nav__item:nth-child(6)>.md-nav__link--active {
+  color: #ffffff !important;
+  font-weight: 500;
+}
+
+/* ========================================
+   PCB PROTOTYPING - COLLAPSIBLE SECTION (8th item)
+   ======================================== */
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(8)>label {
+  color: var(--color-text) !important;
+  font-weight: 500;
+  display: flex !important;
+  align-items: center;
+  cursor: pointer !important;
+  padding: 0.4rem 0;
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 10;
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(8) {
+  position: relative;
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(8)>label .md-nav__icon {
+  display: inline-block !important;
+  margin-left: 6px;
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s;
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(8)>.md-nav__toggle:checked~label .md-nav__icon {
+  transform: rotate(0deg);
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(8)>.md-nav__toggle:not(:checked)~label .md-nav__icon,
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(8)>.md-nav__toggle:indeterminate~label .md-nav__icon {
+  transform: rotate(-180deg);
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(8)>.md-nav__toggle.md-toggle--indeterminate~label .md-nav__icon::after {
+  transform: none !important;
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(8)>.md-nav__toggle {
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  opacity: 0;
+  cursor: pointer !important;
+  z-index: 20;
+  top: 0;
+  left: 0;
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(8)>.md-nav {
+  padding-left: 16px;
+  margin-top: 8px;
+  transition: all 0.2s ease;
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(8)>.md-nav__toggle:checked~.md-nav {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  max-height: 500px !important;
+  overflow: visible !important;
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(8)>.md-nav__toggle:not(:checked)~.md-nav {
+  display: none !important;
+  opacity: 0;
+  visibility: hidden;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(8)>.md-nav>.md-nav__list>.md-nav__item {
+  display: block !important;
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(8)>.md-nav>.md-nav__list>.md-nav__item>.md-nav {
+  display: none !important;
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(8)>.md-nav>.md-nav__list>.md-nav__item>.md-nav__link {
+  color: var(--color-text-muted);
+  padding: 0.3rem 0;
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(8)>.md-nav>.md-nav__list>.md-nav__item>.md-nav__link:hover {
+  color: #ffffff !important;
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(8)>.md-nav>.md-nav__list>.md-nav__item>.md-nav__link--active {
   color: #ffffff !important;
   font-weight: 500;
 }

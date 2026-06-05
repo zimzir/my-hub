@@ -7,7 +7,7 @@ hide:
 ---
 
 <div class="hero-image">
-  <img src="images/backgrounds/homepage-bg.png" alt="">
+  <img src="images/Page-style/homepage-bg.png" alt="">
 </div>
 
 <div class="hero-footer">

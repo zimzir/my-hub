@@ -40,7 +40,7 @@ html {
 body {
   font-family: var(--font-body);
   color: var(--color-text);
-  background: url('../images/backgrounds/documentation-bg.png') center center / cover no-repeat fixed;
+  background: url('../images/Page-style/documentation-bg.png') center center / cover no-repeat fixed;
   line-height: 1.6;
 }
 
@@ -66,17 +66,17 @@ body {
   left: 0;
   right: 0;
   height: var(--header-height);
-  background: url('../images/backgrounds/documentation-bg.png') center center / cover no-repeat fixed;
+  background: url('../images/Page-style/documentation-bg.png') center center / cover no-repeat fixed;
   z-index: -1;
 }
 
 /* Archive/portfolio: fondo propio */
 body:has(.archive-grid) {
-  background-image: url('../images/backgrounds/documentation-bg.png');
+  background-image: url('../images/Page-style/documentation-bg.png');
 }
 
 body:has(.archive-grid) .md-header::before {
-  background-image: url('../images/backgrounds/documentation-bg.png');
+  background-image: url('../images/Page-style/documentation-bg.png');
 }
 
 .md-header__inner {
@@ -655,11 +655,11 @@ body:has(.hero-image) .hero-footer .hero-footer-link:hover {
    CV & CONTACT PAGE (documentation background, wide white block, header only)
    ---------------------------------------- */
 body:has(.cv-contact-page) {
-  background: url('../images/backgrounds/documentation-bg.png') center center / cover no-repeat fixed;
+  background: url('../images/Page-style/documentation-bg.png') center center / cover no-repeat fixed;
 }
 
 body:has(.cv-contact-page) .md-header::before {
-  background: url('../images/backgrounds/documentation-bg.png') center center / cover no-repeat fixed;
+  background: url('../images/Page-style/documentation-bg.png') center center / cover no-repeat fixed;
 }
 
 body:has(.cv-contact-page) .md-content {
@@ -854,21 +854,20 @@ body:has(.cv-contact-page) .md-sidebar--secondary {
 }
 
 /* ========================================
-   NAVIGATION - HIDE ITEMS & SHOW BLENDER CONTENT
-   
-   Nav: 1 Home, 2 Archive, 3 About, 4 CV & Contact, 5 Blender Content, 6 3D Example, 7 Documentation
-   Hide: 1, 2, 3, 7. Show: 4 CV&Contact, 5 Blender Content (collapsible), 6 3D Example
+   NAVIGATION - HIDE ITEMS & SHOW CONTENT
+
+   Nav top-level: 1 Home, 2 Archive, 3 About, 4 CV & Contact, 5 Documentation
+   Inside Documentation: 1 Overview, 2 Blender Content, 3 3D Example, 4 PCB prototyping
    ======================================== */
 
-/* Hide Home, Archive, About, Documentation */
+/* Hide Home, Archive, About */
 .md-nav--primary>.md-nav__list>.md-nav__item:nth-child(1),
 .md-nav--primary>.md-nav__list>.md-nav__item:nth-child(2),
-.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(3),
-.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(7) {
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(3) {
   display: none !important;
 }
 
-/* In Documentation area (intro, Blender Content, 3D Example): hide CV & Contact from sidebar */
+/* In Documentation area: hide CV & Contact from sidebar */
 body:has(.documentation-area) .md-nav--primary>.md-nav__list>.md-nav__item:nth-child(4) {
   display: none !important;
 }
@@ -930,11 +929,40 @@ body:has(.documentation-landing) .documentation-landing > p {
 }
 
 /* ========================================
-   BLENDER CONTENT - COLLAPSIBLE SECTION
+   DOCUMENTATION (5th top-level item) — always expanded, no toggle
    ======================================== */
 
-/* Style "Blender Content" header - make it clickable */
+/* Hide toggle so Documentation section stays always open */
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav__toggle {
+  display: none !important;
+  pointer-events: none;
+}
+
+/* Always show Documentation children */
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  max-height: none !important;
+  overflow: visible !important;
+  padding-left: 0;
+}
+
+/* Hide Documentation label entirely */
 .md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>label {
+  display: none !important;
+}
+
+/* Hide Overview (1st child inside Documentation) */
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(1) {
+  display: none !important;
+}
+
+/* ========================================
+   BLENDER CONTENT — COLLAPSIBLE (2nd child inside Documentation)
+   ======================================== */
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(2)>label {
   color: var(--color-text) !important;
   font-weight: 500;
   display: flex !important;
@@ -946,13 +974,11 @@ body:has(.documentation-landing) .documentation-landing > p {
   z-index: 10;
 }
 
-/* Make sure the label is always clickable */
-.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5) {
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(2) {
   position: relative;
 }
 
-/* Show the arrow icon */
-.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>label .md-nav__icon {
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(2)>label .md-nav__icon {
   display: inline-block !important;
   margin-left: 6px;
   width: 16px;
@@ -960,44 +986,34 @@ body:has(.documentation-landing) .documentation-landing > p {
   transition: transform 0.2s;
 }
 
-/* Arrow: cerrado = arriba, abierto = abajo (nunca a la derecha) */
-.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav__toggle:checked~label .md-nav__icon {
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(2)>.md-nav__toggle:checked~label .md-nav__icon {
   transform: rotate(0deg);
-  /* abajo = expandido */
 }
 
-.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav__toggle:not(:checked)~label .md-nav__icon,
-.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav__toggle:indeterminate~label .md-nav__icon {
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(2)>.md-nav__toggle:not(:checked)~label .md-nav__icon,
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(2)>.md-nav__toggle:indeterminate~label .md-nav__icon {
   transform: rotate(-180deg);
-  /* arriba = cerrado (y estado intermedio, nunca izquierda) */
 }
 
-/* Material rota el ::after a 90° con .md-toggle--indeterminate; se suma a nuestro transform → flecha “al costado”. */
-.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(5) > .md-nav__toggle.md-toggle--indeterminate ~ label .md-nav__icon::after {
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(2)>.md-nav__toggle.md-toggle--indeterminate~label .md-nav__icon::after {
   transform: none !important;
 }
 
-/* The toggle checkbox - visible but transparent to catch clicks */
-.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav__toggle {
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(2)>.md-nav__toggle {
   position: absolute;
-  width: 100%;
-  height: 40px;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
   opacity: 0;
-  cursor: pointer !important;
-  z-index: 20;
-  top: 0;
-  left: 0;
 }
 
-/* Children container */
-.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav {
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(2)>.md-nav {
   padding-left: 16px;
   margin-top: 8px;
   transition: all 0.2s ease;
 }
 
-/* Show children when expanded (checked) */
-.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav__toggle:checked~.md-nav {
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(2)>.md-nav__toggle:checked~.md-nav {
   display: block !important;
   opacity: 1 !important;
   visibility: visible !important;
@@ -1005,8 +1021,7 @@ body:has(.documentation-landing) .documentation-landing > p {
   overflow: visible !important;
 }
 
-/* Hide children when collapsed (not checked) */
-.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav__toggle:not(:checked)~.md-nav {
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(2)>.md-nav__toggle:not(:checked)~.md-nav {
   display: none !important;
   opacity: 0;
   visibility: hidden;
@@ -1014,48 +1029,170 @@ body:has(.documentation-landing) .documentation-landing > p {
   overflow: hidden;
 }
 
-/* Only show direct children (Getting Started, Modes, Modifiers) */
-.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item {
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(2)>.md-nav>.md-nav__list>.md-nav__item {
   display: block !important;
 }
 
-/* Hide any deeper nested items (the TOC sub-items) */
-.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item>.md-nav {
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(2)>.md-nav>.md-nav__list>.md-nav__item>.md-nav {
   display: none !important;
 }
 
-/* Style the main nav links */
-.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item>.md-nav__link {
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(2)>.md-nav>.md-nav__list>.md-nav__item>.md-nav__link {
   color: var(--color-text-muted);
   padding: 0.3rem 0;
 }
 
-.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item>.md-nav__link:hover {
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(2)>.md-nav>.md-nav__list>.md-nav__item>.md-nav__link:hover {
   color: #ffffff !important;
 }
 
-.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item>.md-nav__link--active {
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(2)>.md-nav>.md-nav__list>.md-nav__item>.md-nav__link--active {
   color: #ffffff !important;
   font-weight: 500;
 }
 
 /* ========================================
-   3D EXAMPLE - SHOW IT (6th item)
+   3D EXAMPLE (3rd child inside Documentation)
    ======================================== */
-.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(6) {
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(3) {
   display: block !important;
 }
 
-.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(6)>.md-nav__link {
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(3)>.md-nav__link {
   color: var(--color-text-muted);
   padding: 0.4rem 0;
 }
 
-.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(6)>.md-nav__link:hover {
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(3)>.md-nav__link:hover {
   color: #ffffff !important;
 }
 
-.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(6)>.md-nav__link--active {
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(3)>.md-nav__link--active {
   color: #ffffff !important;
   font-weight: 500;
+}
+
+/* ========================================
+   PCB PROTOTYPING — COLLAPSIBLE (4th child inside Documentation)
+   ======================================== */
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(4)>label {
+  color: var(--color-text) !important;
+  font-weight: 500;
+  display: flex !important;
+  align-items: center;
+  cursor: pointer !important;
+  padding: 0.4rem 0;
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 10;
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(4) {
+  position: relative;
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(4)>label .md-nav__icon {
+  display: inline-block !important;
+  margin-left: 6px;
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s;
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(4)>.md-nav__toggle:checked~label .md-nav__icon {
+  transform: rotate(0deg);
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(4)>.md-nav__toggle:not(:checked)~label .md-nav__icon,
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(4)>.md-nav__toggle:indeterminate~label .md-nav__icon {
+  transform: rotate(-180deg);
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(4)>.md-nav__toggle.md-toggle--indeterminate~label .md-nav__icon::after {
+  transform: none !important;
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(4)>.md-nav__toggle {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(4)>.md-nav {
+  padding-left: 16px;
+  margin-top: 8px;
+  transition: all 0.2s ease;
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(4)>.md-nav__toggle:checked~.md-nav {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  max-height: 500px !important;
+  overflow: visible !important;
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(4)>.md-nav__toggle:not(:checked)~.md-nav {
+  display: none !important;
+  opacity: 0;
+  visibility: hidden;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(4)>.md-nav>.md-nav__list>.md-nav__item {
+  display: block !important;
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(4)>.md-nav>.md-nav__list>.md-nav__item>.md-nav {
+  display: none !important;
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(4)>.md-nav>.md-nav__list>.md-nav__item>.md-nav__link {
+  color: var(--color-text-muted);
+  padding: 0.3rem 0;
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(4)>.md-nav>.md-nav__list>.md-nav__item>.md-nav__link:hover {
+  color: #ffffff !important;
+}
+
+.md-nav--primary>.md-nav__list>.md-nav__item:nth-child(5)>.md-nav>.md-nav__list>.md-nav__item:nth-child(4)>.md-nav>.md-nav__list>.md-nav__item>.md-nav__link--active {
+  color: #ffffff !important;
+  font-weight: 500;
+}
+
+/* ----------------------------------------
+   TOOLTIP
+   ---------------------------------------- */
+.tooltip {
+  position: relative;
+  cursor: help;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  opacity: 0;
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.2s ease;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }
