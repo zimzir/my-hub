@@ -71,10 +71,12 @@ body {
 }
 
 /* Archive/portfolio: fondo propio */
+body:has(.archive-portfolio-area),
 body:has(.archive-grid) {
   background-image: url('../images/Page-style/documentation-bg.png');
 }
 
+body:has(.archive-portfolio-area) .md-header::before,
 body:has(.archive-grid) .md-header::before {
   background-image: url('../images/Page-style/documentation-bg.png');
 }
@@ -269,9 +271,14 @@ body:has(.hero-background) .header-link:hover {
 }
 
 @media (min-width: 76.25em) {
-  .md-sidebar--primary {
+  /* Respetar hide: navigation — no forzar sidebar cuando Material la oculta */
+  .md-sidebar--primary:not([hidden]) {
     display: block !important;
     visibility: visible !important;
+  }
+
+  .md-sidebar--primary[hidden] {
+    display: none !important;
   }
 }
 
@@ -565,22 +572,26 @@ body:has(.hero-background) .header-link:hover {
 }
 
 /* Archive / portfolio: papel blanco al ancho útil, ~30px a cada lado del viewport (arriba/abajo sin cambio) */
+body:has(.archive-portfolio-area) .md-main__inner,
 body:has(.archive-grid) .md-main__inner {
   padding-left: 30px;
   padding-right: 30px;
 }
 
 /* Material: .md-grid { max-width: 61rem } — deja el bloque central angosto; en archive usamos todo el ancho. */
+body:has(.archive-portfolio-area) .md-main__inner.md-grid,
 body:has(.archive-grid) .md-main__inner.md-grid {
   max-width: none;
   width: 100%;
 }
 
+body:has(.archive-portfolio-area) .md-content,
 body:has(.archive-grid) .md-content {
   max-width: none;
   width: 100%;
 }
 
+body:has(.archive-portfolio-area) .md-footer-meta,
 body:has(.archive-grid) .md-footer-meta {
   max-width: none;
   width: 100%;
@@ -838,18 +849,22 @@ body:has(.cv-contact-page) .md-content__inner {
    ---------------------------------------- */
 body:has(.hero-image) .md-sidebar--primary,
 body:has(.hero-background) .md-sidebar--primary,
+body:has(.archive-portfolio-area) .md-sidebar--primary,
 body:has(.archive-grid) .md-sidebar--primary,
 body:has(.archive-header) .md-sidebar--primary,
 body:has(.about-container) .md-sidebar--primary,
-body:has(.cv-contact-page) .md-sidebar--primary {
+body:has(.cv-contact-page) .md-sidebar--primary,
+body:has(.project-page) .md-sidebar--primary {
   display: none !important;
 }
 
 body:has(.hero-image) .md-sidebar--secondary,
 body:has(.hero-background) .md-sidebar--secondary,
+body:has(.archive-portfolio-area) .md-sidebar--secondary,
 body:has(.archive-grid) .md-sidebar--secondary,
 body:has(.about-container) .md-sidebar--secondary,
-body:has(.cv-contact-page) .md-sidebar--secondary {
+body:has(.cv-contact-page) .md-sidebar--secondary,
+body:has(.project-page) .md-sidebar--secondary {
   display: none !important;
 }
 
@@ -1195,4 +1210,114 @@ body:has(.documentation-landing) .documentation-landing > p {
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
+}
+
+/* ----------------------------------------
+   PROJECT PAGE (Archive subpages)
+   ---------------------------------------- */
+
+/* PROJECT PAGE — center content */
+body:has(.project-page) .md-content {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 860px !important;
+}
+
+body:has(.project-page) .md-content__inner {
+  padding: 0;
+}
+
+.project-page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.project-back-link {
+  display: inline-block;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  color: var(--md-typeset-a-color, #1a95e0);
+  text-decoration: none;
+  opacity: 0.75;
+  transition: opacity 0.2s;
+}
+
+.project-back-link:hover {
+  opacity: 1;
+}
+
+.project-hero {
+  width: auto;
+  max-width: 320px;
+  margin: 0 auto 2rem;
+}
+
+.project-hero img {
+  width: 100%;
+  max-height: 240px;
+  object-fit: contain;
+  display: block;
+}
+
+.project-header {
+  margin-bottom: 2.5rem;
+}
+
+.project-header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0 0 0.4rem;
+}
+
+.project-meta {
+  font-size: 0.9rem;
+  opacity: 0.55;
+  margin: 0;
+}
+
+.project-body {
+  line-height: 1.8;
+}
+
+.project-component-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 2rem 0;
+}
+
+.project-component-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.project-component-grid--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+}
+
+.project-component-grid__img--small {
+  width: 72%;
+  max-width: 220px;
+  margin: 0 auto;
+}
+
+.project-component-grid__img--prototipos {
+  width: 68%;
+  max-width: 200px;
+  margin: -2.5rem auto 0;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .project-component-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-component-grid--2 {
+    grid-template-columns: 1fr;
+  }
 }

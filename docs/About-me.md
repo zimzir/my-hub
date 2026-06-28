@@ -12,7 +12,7 @@ hide:
     Here you'll find my work, experiments, and documentation.
   </p>
   <div class="about-links">
-    <a href="../archive/">View Archive</a>
-    <a href="../Blender%20Content/Getting-Started/">View Docs</a>
+    <a href="../archive-portfolio/">View Archive</a>
+    <a href="../documentation/Blender%20Content/Getting-Started/">View Docs</a>
   </div>
 </div>

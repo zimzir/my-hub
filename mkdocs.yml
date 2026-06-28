@@ -5,21 +5,21 @@ site_url: ''
 
 nav:
   - Home: index.md
-  - Archive: archive.md
+  - Archive: archive-portfolio/index.md
   - About: About-me.md
   - CV & Contact: cv-contact.md
   - Documentation:
-      - Overview: documentation.md
+      - Overview: documentation/index.md
       - Blender Content:
-          - Getting Started: Blender Content/Getting-Started.md
-          - Modes in Blender: Blender Content/Modes-in-Blender copy.md
-          - Modifiers: Blender Content/Modifiers.md
-      - 3D Example: threejs-example.md
+          - Getting Started: documentation/Blender Content/Getting-Started.md
+          - Modes in Blender: documentation/Blender Content/Modes-in-Blender copy.md
+          - Modifiers: documentation/Blender Content/Modifiers.md
+      - 3D Example: documentation/threejs-example.md
       - PCB prototyping with desktop CNC:
-          - Introduction: Documentation/PCB-prototyping-with-desktop-CNC/Introduction.md
-          - Electronic Design: Documentation/PCB-prototyping-with-desktop-CNC/Electronic Design.md
-          - Design for Milling: Documentation/PCB-prototyping-with-desktop-CNC/Design-for-Milling.md
-          - Milling Workflow: Documentation/PCB-prototyping-with-desktop-CNC/Milling-Workflow.md
+          - Introduction: documentation/PCB-prototyping-with-desktop-CNC/Introduction.md
+          - Electronic Design: documentation/PCB-prototyping-with-desktop-CNC/Electronic Design.md
+          - Design for Milling: documentation/PCB-prototyping-with-desktop-CNC/Design-for-Milling.md
+          - Milling Workflow: documentation/PCB-prototyping-with-desktop-CNC/Milling-Workflow.md
 
 theme:
   name: material

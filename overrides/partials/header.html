@@ -8,7 +8,7 @@
       <a href="{{ config.site_url }}documentation/" class="header-link" id="doc-link">
         DOCUMENTATION
       </a>
-      <a href="{{ config.site_url }}archive/" class="header-link" id="archive-link">
+      <a href="{{ config.site_url }}archive-portfolio/" class="header-link" id="archive-link">
         ARCHIVE - PORFOLIO
       </a>
     </nav>
@@ -24,7 +24,7 @@
   if (currentPath.includes('documentation') || currentPath.includes('Blender') || currentPath.includes('threejs')) {
     docLink.classList.add('header-link--active');
   }
-  if (currentPath.includes('archive')) {
+  if (currentPath.includes('archive-portfolio') || currentPath.includes('/projects/midi-controller')) {
     archiveLink.classList.add('header-link--active');
   }
 </script>

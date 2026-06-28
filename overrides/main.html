@@ -15,7 +15,10 @@
 <script>
   (function () {
     var path = window.location.pathname;
-    var isDocIntro = path.indexOf('documentation') !== -1;
+    /* Solo la página "Overview" lleva la clase documentation-landing.
+       Anclamos a ella para no activar este comportamiento en TODAS las
+       páginas de documentación tras mover los archivos a /documentation/. */
+    var isDocIntro = !!document.querySelector('.documentation-landing');
     var isThreeJsPage = path.indexOf('threejs') !== -1;
     var isBlenderDocPage = path.indexOf('Getting-Started') !== -1 || path.indexOf('Modifiers') !== -1 || path.indexOf('Modes-in-Blender') !== -1;
     var useBlenderOneClick = isDocIntro || isThreeJsPage;
