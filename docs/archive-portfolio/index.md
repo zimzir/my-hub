@@ -13,7 +13,7 @@ hide:
 <div class="archive-grid">
 
   <a href="projects/midi-controller-simsiroglu/" class="archive-item">
-    <img src="/images/Archive/projects/MIDI-Controller/midi-controller.jpg" alt="MIDI Controller Simsiroglu">
+    <img src="/images/Archive/projects/MIDI-Controller/prototipo-final.png" alt="MIDI Controller Simsiroglu">
     <h3 class="archive-item-title">MIDI Controller Simsiroglu</h3>
     <p class="archive-item-meta">Electronics / Fabrication — 2025</p>
   </a>

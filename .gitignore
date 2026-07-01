@@ -1,0 +1,15 @@
+# MkDocs build output (GitHub Actions generates this on deploy)
+site/
+
+# macOS / iCloud noise
+.DS_Store
+**/.DS_Store
+*.icloud
+**/* 2.*
+**/* 3.*
+**/* 4.*
+
+# Python
+__pycache__/
+*.pyc
+.venv/
